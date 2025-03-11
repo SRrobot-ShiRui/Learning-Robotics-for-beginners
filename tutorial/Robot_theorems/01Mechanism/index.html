@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>机械（Mechanism） - SRrobot | 视睿机器人</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u673a\u68b0\uff08Mechanism\uff09";
+        var mkdocs_page_input_path = "tutorial\\Robot_theorems\\01Mechanism.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> SRrobot | 视睿机器人
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Welcome to SRrobot Classroom</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../about/">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Arduino</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Arduino/Arduino%E4%BB%A3%E7%A0%81%E5%92%8CC%E8%AF%AD%E8%A8%80%E3%80%81C%2B%2B%E7%9A%84%E5%8C%BA%E5%88%AB/">Arduino代码和C语言、C++的区别</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Example</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Arduino/Example/Arduino_ISP/">ArduinoISP</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >01Arduino basic</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/01Arduino_basic/Analog_read_serial/">AnalogReadSerial 模拟信号读取串口</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/01Arduino_basic/Blink_LED/">Blink LED眨眼</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/01Arduino_basic/Digital_Read_Serial/">DigitalReadSerial 数字信号读取</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/01Arduino_basic/Fade/">Fade 衰减</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/01Arduino_basic/Read_Analog_Voltage/">ReadAnalogVoltage 读取模拟电压</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >02Arduino digital</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/02Arduino_digital/Blink_without%20_Delay/">Blink without Delay 无延迟闪烁</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/02Arduino_digital/Button/">Button 按键</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/02Arduino_digital/Debounce/">Debounce 防反跳</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/02Arduino_digital/Input_Pullup_Serial/">Input Pullup Serial 输入张力信号</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/02Arduino_digital/Melody/">Melody 旋律</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/02Arduino_digital/Multiple_tone_player/">Multiple tone player 多音播放器</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/02Arduino_digital/Pitch_follower/">Pitch follower</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/02Arduino_digital/State_change_detection/">State change detection 状态变化检测</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/02Arduino_digital/keyboard/">keyboard 键盘</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >03Arduino analog</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/03Arduino_analog/Analog_Input/">Analog Input 模拟输入</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/03Arduino_analog/Analog_input_analog_output_serial_output/">Analog input, analog output, serial output 模拟输入、模拟输出、连续输出</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/03Arduino_analog/Calibration/">Calibration 校准</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/03Arduino_analog/Fading/">Fading 衰减模拟信号写入</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/03Arduino_analog/Mega_analogWrite_test/">Mega analogWrite() test 兆模拟信号写入测试</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/03Arduino_analog/Smoothing/">Smoothing</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >04Arduino communication</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/04Arduino_communication/ASCII_table/">ASCII table 美国信息交换标准代码</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/04Arduino_communication/Dimmer/">Dimmer 调光器</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/04Arduino_communication/Graph/">Graph 图表</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/04Arduino_communication/MIDI_note_player/">MIDI note player 迷笛演奏</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/04Arduino_communication/Mega_multple_serial_test/">Mega multiple serial test 多重串行测试</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/04Arduino_communication/Physical_Pixel/">Physical Pixel 物理像素</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/04Arduino_communication/Reading_a_serial_ASCII-encoded_string/">Reading a serial ASCII-encoded string 读取串行编码串</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/04Arduino_communication/Serial_Call_and_Response/">Serial Call and Response 连续呼叫与回答</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/04Arduino_communication/Serial_Call_and_Response_in_ASCII/">Serial Call and Response in ASCII ASCII连续呼叫和回答</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/04Arduino_communication/Serial_Event_example/">Serial Event example 连续事件例子</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/04Arduino_communication/Virtual_Color_Mixer/">Virtual Color Mixer 虚拟混色器</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >05Arduino control</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/05Arduino_control/Arrays/">Arrays 排列</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/05Arduino_control/Conditionals_If_statement/">Conditionals - If statement 条件if</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/05Arduino_control/Conditionals_while_statement/">Conditionals - while statement 条件while</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/05Arduino_control/For_Loop_Iteration/">For Loop Iteration 循环迭代</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/05Arduino_control/Switch_statement/">Switch statement 条件switch</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/05Arduino_control/Switch_statement_with_serial_input/">Switch statement with serial input 条件switch连续输入</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >06Arduino sensor</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/06Arduino_sensor/ADXL3xx/">ADXL3xx 加速传感器</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/06Arduino_sensor/Knock%20Sensor/">Knock Sensor 敲击感知器</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/06Arduino_sensor/Memsic/">Memsic 半导体</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/06Arduino_sensor/Ping/">Ping</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >07Arduino display</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/07Arduino_display/LED_bar_graph/">LED bar graph LED线条图</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/07Arduino_display/Row-Column_Scanning/">Row-Column Scanning an 8x8 LED matrix with X-Y input LED矩阵</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >08Arduino strings</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/Adding_Strings_together/">Adding Strings together 添加字节</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/Appending%20_to_Strings/">Appending to Strings 添加字节</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/Character_analysis_operators/">Character analysis operators 字符分析</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/Comparing_Strings/">Comparing Strings 比较字符串</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/Serial_RGB_controller/">Serial RGB controller 串行RGB控制器</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/String_Case_changes/">String Case changes 字符串改写</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/String_charAt_and_setCharAt/">String charAt() and setCharAt() 设置字符串字符</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/String_constructors/">String constructors 字符串构造器</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/String_indexOf_and_lastIndexOf_functions/">String indexOf() and lastIndexOf() functions 字符串索引函数</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/String_length/">String length() 字符串长度</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/String_length_and_trim/">String length() and trim() 字符串装饰</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/String_replace/">String replace() 字符串替换</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/String_startWith_and_endsWith/">String startWith() and endsWith() 字符串开始和结尾</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/String_substring/">String substring() 字符串子链</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/08Arduino_strings/String_to_Integer_conversion/">String to Integer conversion 字符串到整数的转换</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >09Arduino USB</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/09Arduino_USB/Arduino_Programs_Blink/">Arduino Programs Blink 闪烁项目</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/09Arduino_USB/Button_Mouse_Control/">Button Mouse Control 按钮鼠标控制</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/09Arduino_USB/Joystick_Mouse_Control/">Joystick Mouse Control 操纵杆鼠标控制</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/09Arduino_USB/Keyboard_And_Mouse_Control/">Keyboard And Mouse Control 键盘鼠标控制</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/09Arduino_USB/Keyboard_Message_test/">Keyboard Message test 键盘消息测试</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/09Arduino_USB/Keyboard_logout/">Keyboard logout 键盘注销</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/09Arduino_USB/Keyboard_test/">Keyboard test 键盘测试</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >10Arduino starterKit</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project02-Spaceship_Interface/">Project 02 - Spaceship Interface 宇宙飞船接口</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project03-Love-O-Meter/">Project 03 - Love-O-Meter 温度感应</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project04-Color_Mixing_Lamp/">Project 04 - Color Mixing Lamp 混色灯</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project05-Servo_Mood_Indicator/">Project 05 - Servo Mood Indicator 伺服情绪指示器</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project06-Light_Theremin/">Project 06 - Light Theremin 电阻</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project07-Keyboard/">Project 07 - Keyboard 键盘</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project08-Digital_Hourglass/">Project 08 - Digital Hourglass 数字沙漏</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project09-Motorized_Pinwheel/">Project 09 - Motorized Pinwheel 电动风车</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project10-Zoetrope/">Project 10 - Zoetrope 西洋镜</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project11-Crystal_Ball/">Project 11 - Crystal Ball 水晶球</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project12-Knock_Lock/">Project 12 - Knock Lock 锁</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project13-Touch_Sensor_Lamp/">Project 13 - Touch Sensor Lamp 触摸传感灯</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project14-Tweak_the_Arduino_Logo/">Project 14 - Tweak the Arduino Logo 调整</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../Arduino/Example/10Arduino_starterKit/Project15-Hacking_Buttons/">Project 15 - Hacking Buttons 光耦合器</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >C Language</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/01-1C_Introduction/">C语言基础概念</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/01-2C_For_example/">C语言在各个应用领域的具体案例</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/02-1C_data_type/">C语言中的基本数据类型</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/02-2C_operator/">C语言中的运算符</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/02-3C_expression/">C语言中的表达式和求值</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/03C_if_switch_while_do_while/">C语言中的控制语句</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/04C_function/">C语言中的函数</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/05C_array/">C语言中的数组概念</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/06C_indicator/">C语言中的指针</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/07C_struct_union/">C语言中的结构体和联合</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/08C_pretreatment/">C语言中的预处理指令</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/09C_file_operation/">C语言中的文件操作</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/10C_Advanced/">C语言中的高级特性</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../C_Language/Exercise_C/">Exercise_C</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Exercise answer</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/001/">001. 编写一个简单的Hello World程序</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/002/">002. 理解C语言的基本语法结构</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/003/">003. 声明不同数据类型的变量并赋值</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/004/">004. 使用各种运算符进行计算</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/005/">005. 编写表达式并确定其值</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/006/">006. 编写条件语句处理不同情况</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/007/">007. 使用循环语句重复执行代码块</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/008/">008. 理解循环控制语句（break, continue）</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/009/">009. 编写并调用一个简单的函数</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/010/">010. 理解函数参数的传递方式</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/011/">011. 使用函数返回计算结果</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/012/">012. 声明和初始化数组</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/013/">013. 遍历数组并处理每个元素</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/014/">014. 使用数组作为函数参数</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/015/">015. 声明和初始化指针</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/016/">016. 使用指针访问和修改变量值</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/017/">017. 理解指针与数组的关系</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/018/">018. 定义和初始化结构体</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/019/">019. 使用结构体数组存储复杂数据</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/020/">020. 理解联合的使用</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/021/">021. 使用宏定义简化代码</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/022/">022. 包含标准库和自定义头文件</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/023/">023. 编写条件编译代码</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/024/">024. 打开和关闭文件</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/025/">025. 读写文件内容</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/026/">026. 在文件中定位</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/027/">027. 使用动态内存分配</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/028/">028. 理解链表的构建和遍历</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/029/">029. 编写递归函数</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/030/">030. 使用switch语句处理多个条件</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/031/">031. 编写嵌套循环</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/032/">032. 编写带参数的函数</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/033/">033. 使用指针进行数组操作</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/034/">034. 理解指针的指针</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/035/">035. 编写结构体的函数</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/036/">036. 使用宏定义实现常量定义</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/037/">037. 编写带条件编译的代码</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/038/">038. 处理文件错误</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/039/">039. 读写二进制文件</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/040/">040. 使用动态内存分配创建数据结构</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/041/">041. 实现链表的基本操作（创建、插入、删除）</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/042/">042. 编写递归函数计算阶乘</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/043/">043. 使用递归解决汉诺塔问题</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/044/">044. 编写冒泡排序算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/045/">045. 实现选择排序</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/046/">046. 编写插入排序算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/047/">047. 理解递归与循环的转换</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/048/">048. 使用递归进行树的遍历</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/049/">049. 实现二分查找算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/050/">050. 编写快速排序算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/051/">051. 实现归并排序</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/052/">052. 理解动态规划的基本概念</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/053/">053. 使用指针和数组实现队列</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/054/">054. 使用链表实现栈</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/055/">055. 实现链表的反转</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/056/">056. 编写函数实现字符串的复制</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/057/">057. 实现字符串的比较函数</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/058/">058. 编写函数连接两个字符串</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/059/">059. 实现字符串的反转</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/060/">060. 使用指针操作字符串</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/061/">061. 理解内存对齐和字节序</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/062/">062. 使用位运算优化算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/063/">063. 编写函数实现整数的二进制表示</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/064/">064. 使用位运算实现简单的加密和解密</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/065/">065. 理解C语言中的类型转换</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/066/">066. 使用typedef定义新类型</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/067/">067. 编写代码处理不同数据类型的输入输出</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/068/">068. 理解C语言中的内存模型</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/069/">069. 使用goto语句实现复杂的跳转</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/070/">070. 编写代码处理C语言中的异常情况</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/071/">071. 理解C语言中的信号处理</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/072/">072. 使用setjmp和longjmp进行非局部跳转</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/073/">073. 编写代码实现简单的内存池</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/074/">074. 理解C语言中的多线程编程</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/075/">075. 使用C语言访问硬件资源</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/076/">076. 编写代码实现简单的网络通信</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/077/">077. 理解C语言中的嵌入式编程</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/078/">078. 使用C语言编写简单的图形界面程序</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/079/">079. 理解C语言中的编译原理</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/080/">080. 使用C语言实现简单的数据库操作</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/081/">081. 编写代码实现简单的文件压缩和解压</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/082/">082. 使用C语言实现简单的加密算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/083/">083. 编写代码实现简单的操作系统调度算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/084/">084. 理解C语言中的虚拟内存管理</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/085/">085. 使用C语言实现简单的进程间通信</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/086/">086. 编写代码实现简单的网络服务器</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/087/">087. 理解C语言中的并发编程</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/088/">088. 使用C语言实现简单的数据库索引</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/089/">089. 编写代码实现简单的图形处理算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/090/">090. 使用C语言实现简单的机器学习算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/091/">091. 编写代码实现简单的自然语言处理算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/092/">092. 使用C语言实现简单的图像识别算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/093/">093. 编写代码实现简单的语音识别算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/094/">094. 使用C语言实现简单的数据挖掘算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/095/">095. 编写代码实现简单的推荐系统</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/096/">096. 使用C语言实现简单的游戏逻辑</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/097/">097. 编写代码实现简单的物理引擎</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/098/">098. 使用C语言实现简单的人工智能算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/099/">099. 编写代码实现简单的机器视觉算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../C_Language/Exercise-answer/100/">100. 使用C语言实现简单的自然语言理解算法</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Markdown</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Markdown/Markdown_grammar/">Markdown基本语法</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Markdown/Obsidian_skill/">Obsidian</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/01-0python_introduction/">Python 概述</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/01-1python_assignment/">python中的变量赋值机制</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/01-2python_data_type/">python中的常用数据类型</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/01-3python_operator/">python中的算术运算符</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/02-1python_if-elif-else/">条件语句if-elif-else</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/02-2python_for-while/">循环语句for-while</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/02-3python_break-continue/">循环控制语句break-continue</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/03-1python_list/">列表</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/03-2python_tuple/">元组</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/03-3python_dict/">字典</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/03-4python_set/">集合</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/04-1python_str/">字符串定义和特性</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/04-2python_str_method/">字符串的常用方法</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/04-3python_str_format/">字符串格式化</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/05-1python_function/">python函数定义和调用</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/05-2python_parameters/">参数和返回值</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/05-3python_scope/">变量作用域</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/06-1python_module/">模块的定义和导入</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/06-2python_package/">python中包(package)的使用</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/06-3python_pip/">python安装和使用第三方包</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/07-1python_class_object/">python中的类和对象</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/07-2python_oop/">python中的继承和多态</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/07-3python_constructor/">特殊方法</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/08-1python_error/">异常的基本概念</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/08-2python_error_logging/">异常捕获和处理</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/08-3python_MyCustomError/">自定义异常</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/09-1python_open_close_file/">文件的打开和关闭</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/09-2python_read_write_file/">文件读写操作</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/09-3python_serialization_deserialization/">序列化和反序列化</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/10-1python_list_comprehension/">列表推导式</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/10-2python_generators/">生成器和迭代器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/10-3python_decorator/">装饰器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Python/Exercise_python/">Exercise python</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Exercise answer</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/001/">001. 写出python的版本号</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/002/">002. 解释python中的变量赋值机制</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/003/">003. 列出python中的常用数据类型</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/004/">004. 举例说明python中的算术运算符</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/005/">005. 写出判断一个数是正数、负数还是零的代码</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/006/">006. 使用for循环打印1到10的数字</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/007/">007. 使用while循环实现一个计数器，直到用户输入q停止</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/008/">008. 创建一个包含python、java、C++的列表</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/009/">009. 将一个列表[1,2,3,4,5]反转</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/010/">010. 将两个列表[1,2,3]和[4,5,6]合并成一个列表</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/011/">011. 定义一个字符串变量并打印其长度</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/012/">012. 使用字符串的upper()方法将字符串转换为大写</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/013/">013. 将字符串Hello World中的World替换为python</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/014/">014. 定义一个函数，计算两个数的和</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/015/">015. 定义一个函数，接受任意数量的参数并返回它们的乘积</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/016/">016. 创建一个简单的模块并导入使用</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/017/">017. 导入math模块并使用其sqrt函数计算平方根</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/018/">018. 定义一个类，包含初始化方法和至少一个其他方法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/019/">019. 实现一个继承自list的自定义列表类</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/020/">020. 编写一个try-except块来捕获并处理除以零的错误</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/021/">021. 定义一个自定义异常，并在特定条件下抛出</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/022/">022. 打开一个文件并读取其内容</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/023/">023. 将一个字典序列化到一个文件中</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/024/">024. 使用列表推导式生成一个包含0到9的平方的列表</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/025/">025. 创建一个生成器函数，生成斐波那契数列的前20个数</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/026/">026. 什么是 Python 的 GIL（全局解释器锁）？</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/027/">027. 编写一个函数，检查一个列表中的所有元素是否相同</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/028/">028. 编写一个函数，实现简单的计算器功能，支持加减乘除</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/029/">029. 使用for循环和range函数生成斐波那契数列的前10个数</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/030/">030. 编写一个函数，实现字符串的反转</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/031/">031. 解释python中的深拷贝和浅拷贝</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/032/">032. 编写一个函数，计算一个数字的阶乘</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/033/">033. 编写一个函数，检查一个字符串是否是回文</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/034/">034. 编写一个函数，将一个字符串中的所有单词反转</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/035/">035. 编写一个函数，实现简单的文本搜索功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/036/">036. 编写一个函数，将一个字符串中的所有字符按ASCII值排序</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/037/">037. 编写一个函数，实现二分查找算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/038/">038. 编写一个函数，检查一个链表是否有环</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/039/">039. 编写一个函数，反转一个单链表</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/040/">040. 编写一个函数，合并两个有序链表</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/041/">041. 编写一个函数，检查一个二叉树是否是平衡二叉树</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/042/">042. 编写一个函数，实现二叉树的前序、中序、后序遍历</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/043/">043. 编写一个函数，实现堆排序算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/044/">044. 编写一个函数，实现快速排序算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/045/">045. 编写一个函数，实现归并排序算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/046/">046. 编写一个函数，检查一个数组是否是排序的</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/047/">047. 编写一个函数，找出数组中的第K大元素</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/048/">048. 编写一个函数，实现简单的命令行接口，接受用户输入并响应</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/049/">049. 编写一个函数，实现简单的文本编辑器功能，支持增删改查</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/050/">050. 编写一个函数，实现简单的日历功能，显示当前日期和星期</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/051/">051. 编写一个函数，实现简单的定时器功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/052/">052. 编写一个函数，实现简单的密码生成器</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/053/">053. 编写一个函数，实现简单的文件加密和解密功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/054/">054. 编写一个函数，实现简单的命令行进度条</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/055/">055. 编写一个函数，实现简单的文本文件的行数统计</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/056/">056. 编写一个函数，实现简单的CSV文件解析器</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/057/">057. 编写一个函数，实现简单的JSON文件解析器</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/058/">058. 编写一个函数，实现简单的XML文件解析器</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/059/">059. 编写一个函数，实现简单的HTTP客户端功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/060/">060. 编写一个函数，实现简单的SMTP邮件发送功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/061/">061. 编写一个函数，实现简单的FTP客户端功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/062/">062. 编写一个函数，实现简单的数据库连接和操作</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/063/">063. 编写一个函数，实现简单的图像处理功能，旋转、缩放</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/064/">064. 编写一个函数，实现简单的音频处理功能，音量调整、格式转换</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/065/">065. 编写一个函数，实现简单的视频处理功能，剪辑、格式转换</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/066/">066. 编写一个函数，实现简单的网络爬虫功能，抓取网页内容</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/067/">067. 编写一个函数，实现简单的自然语言处理功能，分词、情感解析</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/068/">068. 编写一个函数，实现简单的机器学习算法，线性回归、决策树</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/069/">069. 编写一个函数，实现简单的神经网络模型</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/070/">070. 编写一个函数，实现简单的遗传算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/071/">071. 编写一个函数，实现简单的模拟退火算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/072/">072. 编写一个函数，实现简单的蚁群算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/073/">073. 编写一个函数，实现简单的粒子群优化算法</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/074/">074. 编写一个函数，实现简单的图像识别功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/075/">075. 编写一个函数，实现简单的语音识别功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/076/">076. 编写一个函数，实现简单的推荐系统</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/077/">077. 编写一个函数，实现简单的聊天机器人</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/078/">078. 编写一个函数，实现简单的游戏AI</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/079/">079. 编写一个函数，实现简单的图形用户界面</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/080/">080. 编写一个函数，实现简单的的网络服务器功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/081/">081. 编写一个函数，实现简单的数据库服务器功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/082/">082. 编写一个函数，实现简单的文件服务器功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/083/">083. 编写一个函数，实现简单的邮件服务器功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/084/">084. 编写一个函数，实现简单的FTP服务器功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/085/">085. 编写一个函数，实现简单的DNS服务器功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/086/">086. 编写一个函数，实现简单的DHCP服务器功能</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/087/">087. 编写一个函数，实现简单的Web框架</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/088/">088. 编写一个函数，实现简单的ORM框架</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/089/">089. 编写一个函数，实现简单的单元测试框架</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/090/">090. 编写一个函数，实现简单的性能测试工具</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/091/">091. 编写一个函数，实现简单的代码分析工具</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/092/">092. 编写一个函数，实现简单的内存分析工具</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/093/">093. 编写一个函数，实现简单的网络分析工具</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/094/">094. 编写一个函数，实现简单的安全扫描工具</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/095/">095. 编写一个函数，实现简单的日志分析工具</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/096/">096. 编写一个函数，实现简单的配置管理工具</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/097/">097. 编写一个函数，实现简单的版本控制工具</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/098/">098. 编写一个函数，实现简单的持续集成、持续部署（CICD）工具</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/099/">099. 编写一个函数，实现简单的容器管理工具</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../Python/Exercise-answer/100/">100. 编写一个函数，实现简单的云服务管理工具</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Robot 3D print</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_3D_print/00Solidworks/">3D打印课程概述</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_3D_print/01Solidworks_introduction/">Solidworks软件简介</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_3D_print/02Solidworks_Interface_%26_operation/">界面布局与操作基础</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_3D_print/03Solidworks_Sketch_basic/">草图绘制基础</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_3D_print/04Solidworks_Sketch_Advanced/">复杂草图绘制技巧</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_3D_print/05Solidworks_Extrude_Revolve_Loft/">基础特征建模</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_3D_print/06Solidworks_Sweep_Rib_Shell_Chamfer_fillet/">高级特征建模</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_3D_print/07Solidworks_Assemble/">装配体创建与组件添加</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_3D_print/08Solidworks_Assemble_Advanced_%26_motion_simulation/">复杂装配设计与运动仿真</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_3D_print/09Solidworks_Drawing/">工程图创建与视图布局</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_3D_print/10Solidworks_Drawing_standard/">工程图标注与尺寸管理</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Robot concept design</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_concept_design/00Blender/">概念模型设计课程概述</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_concept_design/01blender_introduction/">Blender基础与基本操作</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_concept_design/02blender_basic_operation/">基础建模工具与操作</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_concept_design/03blender_subdivision/">细分与编辑网格</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_concept_design/04blender_advanced/">建模技巧与最佳实践</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_concept_design/05blender_dynamic_topolopy/">高级建模工具</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_concept_design/06blender_shader/">材质与纹理基础</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_concept_design/07blender_light/">灯光与渲染基础</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_concept_design/08blender_charactor/">角色建模的基本流程</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_concept_design/09blender_building/">建筑与环境建模</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_concept_design/10blender_robot_project/">综合项目与实战演练</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Robot hardware</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_hardware/00Robot/">硬件介绍</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_hardware/01Robot_hardware/">第一章：机器人硬件概述</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_hardware/02Mechanism_%26_design/">第二章：机械结构与设计</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_hardware/03Drive_system/">第三章：驱动系统</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_hardware/04Sensor_technology/">第四章：传感器技术</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_hardware/05Control_system/">第五章：控制系统</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_hardware/06Battery_management/">第六章：电源管理</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_hardware/07Hardware_development_%26_debugging/">第七章：硬件开发与调试</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_hardware/08Robot_hardware_Assembly_%26Testing/">第八章：机器人硬件的组装与测试</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_hardware/09Project_%26_analysis/">第九章：实践项目与案例分析</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_hardware/10Robot_hardware%E2%80%98s_future/">第十章：机器人硬件的未来趋势</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Robot industrial design</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_industrial_design/00ROS/">ROS课程介绍</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_industrial_design/01Robot%20Operating%20System%EF%BC%89/">ROS入门（Robot Operating System）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_industrial_design/02ROS%20Communication%20System/">ROS架构及通信机制（ROS Communication System）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_industrial_design/03ROS%20Visualization/">可视化和调试工具（ROS Visualization）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_industrial_design/04ROS%20URDF%20%26%20Gazebo/">3D建模与仿真（ROS URDF &amp; Gazebo）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_industrial_design/05Transform%20system/">导航功能包入门（Transform system）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_industrial_design/06Navigation%20%26%20RViz/">ROS中机器人配置及相关功能实现（Navigation &amp; RViz）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_industrial_design/07MoveIt/">ROS中使用MoveIt进行机械臂操作（MoveIt）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_industrial_design/08Joystick%20%26%20RGBD/">在ROS下使用传感器（Joystick &amp; RGBD）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_industrial_design/09ROS%20Viso2/">计算机视觉（ROS Viso2）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Robot_industrial_design/10Point%20Cloud/">点云（Point Cloud）</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Robot theorems</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../00Mechanical_principle/">机械原理</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../01Mechanical_Structure/">机械结构（Mechanical Structure）</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">机械（Mechanism）</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_1">机械的组成要素</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_2">机构</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_3">零件</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_4">构件</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">机械的分类</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_6">动力机械</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_9">工作机械</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_15">信息机械</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_18">机械的功能</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_19">生产领域</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_23">生活领域</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_26">科研领域</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_29">视频讲解</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../02Linkage_Mechanism/">连杆机构 （Linkage Mechanism）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../03Cam_Menchanism/">凸轮机构（Cam Menchanism）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../04Gear_Mechanism/">齿轮机构（Gear Mechanism）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../05Wheel_Mechanism/">轮系机构（Wheel Mechanism）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../06Others_Mechanism/">其他常用机构（Others Mechanism）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../07Kinematic_of_a_Rigid_Body/">刚体运动学基础（Kinematic of a Rigid Body）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../08Kinematic_Analysis/">机构运动分析方法（Kinematic Analysis）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../09Kinematics_Modeling_%26_Simulation/">机械系统的运动学建模与仿真（Kinematics Modeling &amp; Simulation）</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../10Mechanical_Structure_Explain/">图解机械结构（Mechanical Structure Explain）</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">SRrobot | 视睿机器人</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tutorial</li>
+          <li class="breadcrumb-item">Robot theorems</li>
+      <li class="breadcrumb-item active">机械（Mechanism）</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="mechanism">机械（Mechanism）</h1>
+<p>从物理学角度，机械是指利用力学原理组成的各种装置。它可以将一种形式的能量转化为另一种形式的能量，或者改变力的大小、方向和作用点等。例如杠杆。
+从工程学角度，机械是各种机器和机构的总称。它由多个零件按照一定的规律组合而成，这些零件之间有确定的相对运动。例如汽车。
+从制造业角度，机械是指用于生产制造过程中的各类设备和工具。这些设备和工具能够对原材料进行加工、装配、检测等操作。例如车床。</p>
+<h2 id="_1">机械的组成要素</h2>
+<p>机械由机构零件和构件组成。</p>
+<h3 id="_2">机构</h3>
+<p>是由构件和运动副组成的，具有确定相对运动的组合体。
+由多个构件通过运动副连接而成，能够实现预定的相对运动。
+常见的机构有连杆机构、凸轮机构、齿轮机构等。例如，内燃机中的曲柄滑块机构，通过曲柄、连杆和滑块之间的相对运动，将曲柄的旋转运动转换为滑块的往复直线运动，进而推动活塞上下移动。</p>
+<h3 id="_3">零件</h3>
+<p>是制造单元。
+是机械结构的最小单元，具有特定的形状、尺寸和精度要求。
+例如，螺栓、螺母、齿轮、轴等。零件的材料、加工工艺等直接影响其性能和质量。</p>
+<h3 id="_4">构件</h3>
+<p>是运动单元。
+由一个或多个零件刚性连接而成，在运动过程中可视为一个整体。
+如曲柄连杆机构中的曲柄和连杆，它们通过销钉等连接方式组合在一起，在发动机工作过程中作为一个整体运动。</p>
+<h2 id="_5">机械的分类</h2>
+<p>工作机械在现代工业和生活中扮演着重要角色，涵盖了力传递机械、传动机械、液压机械、气动机械和机器人等多种类型。</p>
+<h3 id="_6">动力机械</h3>
+<p>动力机械在现代工业和生活中扮演着重要角色，内燃机和电动机是其中的两大主要类型。
+内燃机通过燃烧燃料产生机械能，广泛应用于交通运输和发电等领域；
+电动机则通过电磁感应将电能转化为机械能，广泛应用于各种电气设备和自动化控制系统中。</p>
+<h4 id="_7">内燃机</h4>
+<p><strong>类型</strong></p>
+<ul>
+<li>
+<p>汽油发动机：通常用于轿车，具有轻便、低温起动性能好、运转平稳等优点。</p>
+</li>
+<li>
+<p>柴油发动机：广泛应用于卡车、船舶和部分发电设备，具有热效率高、燃油经济性好、运行可靠等优点。</p>
+</li>
+<li>
+<p>转子发动机：通过三角转子在椭圆形腔体内的旋转运动来实现做功，体积小、结构简单，但使用寿命和燃油经济性较低，主要应用于一些特定的车辆如马自达RX系列。</p>
+</li>
+<li>
+<p>二冲程发动机：每一个工作循环只需两个活塞行程，结构简单、功率密度高，适用于摩托车、割草机和小型船外机，但油耗高、排放不达标，应用受限。</p>
+</li>
+<li>
+<p>四冲程发动机：每一个工作循环需四个活塞行程，包括进气、压缩、做功及排气，效率较高，广泛应用于几乎所有的汽车和摩托车。</p>
+</li>
+<li>
+<p>涡轮增压发动机：通过废气驱动涡轮增加进气量，提高燃烧效率和输出功率，广泛应用于高性能汽车、赛车及重型卡车。</p>
+</li>
+<li>
+<p>超级增压发动机：由发动机机械驱动，增大进气量，提高功率输出，常应用于高性能跑车和一些飞机引擎。</p>
+</li>
+<li>
+<p>混合动力发动机：结合了内燃机和电动机的优点，能根据工况互相切换，优势在于提高燃油效益和减少排放，主要应用于现代的节能环保车型。</p>
+</li>
+</ul>
+<p><strong>工作原理</strong>: 内燃机的工作原理基于热力学循环，包括四个主要阶段：吸气、压缩、燃烧和排气。</p>
+<ul>
+<li>
+<p>吸气阶段：活塞从上止点移动到下止点，进气门打开，外界空气或混合气被吸入气缸。</p>
+</li>
+<li>
+<p>压缩阶段：活塞由下止点向上止点移动，进气门和排气门均关闭，气缸内的空气或混合气被压缩，压力和温度升高。</p>
+</li>
+<li>
+<p>燃烧阶段：在活塞达到下止点时，点火装置产生火花点燃气缸内的混合气体，可燃气体燃烧释放出大量热能，使气缸内的气体压力迅速上升，推动活塞向下运动，将内能转化为机械能。</p>
+</li>
+<li>
+<p>排气阶段：活塞再次从下止点向上止点移动，排气门打开，燃烧后的废气被排出气缸。</p>
+</li>
+</ul>
+<p><strong>应用</strong></p>
+<ul>
+<li>
+<p>汽车：传统的汽车发动机通常采用内燃机作为动力源，通过燃烧汽车燃料（如汽油或柴油）产生爆炸，从而驱动汽车运动。</p>
+</li>
+<li>
+<p>飞机：内燃机在航空领域中也得到了广泛应用，特别是涡轮喷气发动机和涡轮螺旋桨发动机。这些发动机通过喷射燃料和氧气的混合物，并利用燃烧产生的高温高压气体来产生推力，从而驱动飞机飞行。</p>
+</li>
+<li>
+<p>船舶：内燃机在船舶领域中也被广泛使用，特别是柴油机。柴油机通过压缩空气混合物使其自燃，从而产生高温高压气体，利用这些气体推动活塞，驱动船舶前进。</p>
+</li>
+<li>
+<p>发电机：内燃机还广泛应用于发电行业。柴油发电机和燃气发电机是常见的内燃机发电设备，通过燃烧燃料产生能量，从而驱动发电机转子产生电能。</p>
+</li>
+</ul>
+<h4 id="_8">电动机</h4>
+<p><strong>类型</strong></p>
+<ul>
+<li>
+<p>直流电动机：由电磁铁和转子组成，当电流通过电磁铁产生磁场，与转子上的永磁体相互作用使转子旋转，改变电流方向可改变旋转方向。</p>
+</li>
+<li>
+<p>交流异步电动机：定子通入交流电产生旋转磁场，转子导体因相对运动切割磁感线产生感应电流，感应电流又与旋转磁场相互作用产生电磁力，推动转子旋转，其转速略低于旋转磁场速度。</p>
+</li>
+<li>
+<p>交流同步电动机：定子通入交流电产生旋转磁场，转子上的导体产生的磁场与定子磁场同步，从而使转子旋转，其旋转速度与电源频率成正比。</p>
+</li>
+<li>
+<p>步进电机：能够控制位置，常用于精密机械和自动化设备。</p>
+</li>
+</ul>
+<p><strong>工作原理</strong>: 电动机基于电磁感应定律，通过磁场与电流的相互作用将电能转化为机械能。</p>
+<ul>
+<li>
+<p>磁场的产生：定子通常包含绕组，当电流通过定子绕组时，会产生磁场，这个磁场可以是恒定磁场，也可以是旋转磁场。</p>
+</li>
+<li>
+<p>转子受力转动：转子是电动机的旋转部分，一般由导线或绕组构成。当定子产生的磁场与转子相互作用时，通电的转子导线在磁场中会受到安培力，其方向依据左手定则来判定，力的大小则与电流强度、导线长度、磁场强度以及电流与磁场方向间的夹角有关。在安培力的作用下，转子便会绕轴旋转起来，从而实现电能向机械能的转化。</p>
+</li>
+</ul>
+<p><strong>应用</strong></p>
+<ul>
+<li>
+<p>电气伺服传动领域：在要求速度控制和位置控制（伺服）的场合，特种电机的应用越来越广泛。如交流伺服电机驱动系统应用在凹版印刷机中，以其高控制精度实现了极高的同步协调性，使这种印刷设备具有自动化程度高、套准精度高、承印范围大、生产成本低、节约能源、维修方便等优势。在工业缝纫机中，随着永磁交流伺服电动机控制系统、无刷直流电动机控制系统、混合式步进电动机控制系统的大量使用，使工业缝纫机向自动化、智能化、复合化、集成化、高效化、无油化、高速化、直接驱动化方向快速发展。</p>
+</li>
+<li>
+<p>信息处理领域：在计算机、通信、自动化控制等设备中，电动机用于驱动各种机械部件，如硬盘驱动器的主轴电机、打印机的步进电机等，实现精确的位置控制和高速运动。</p>
+</li>
+<li>
+<p>家用电器：如电风扇、洗衣机、空调等，电动机用于驱动风扇、电机等部件，实现空气流动、衣物洗涤和空气调节等功能。</p>
+</li>
+<li>
+<p>工业生产：在各种工业设备中，电动机用于驱动泵、风机、传送带等，实现物料的输送、液体的循环和机械的运转。</p>
+</li>
+</ul>
+<h3 id="_9">工作机械</h3>
+<p>工作机械在现代工业和生活中扮演着重要角色，涵盖了力传递机械、传动机械、液压机械、气动机械和机器人等多种类型。</p>
+<h4 id="_10">力传递机械</h4>
+<p>力传递机械主要用于对物体施加压力、拉伸和扭曲等力，广泛应用于建筑、制造、挖掘和运输等领域。</p>
+<p><strong>压力机</strong></p>
+<ul>
+<li>
+<p>原理：通过液压或机械传动系统，将力传递到模具上，对工件进行冲压、成型、切割等操作。</p>
+</li>
+<li>
+<p>应用：广泛用于汽车制造中的机油滤芯、空气滤清器和悬架弹簧的生产。</p>
+</li>
+</ul>
+<p><strong>磨床</strong></p>
+<ul>
+<li>
+<p>原理：利用磨具（如砂轮）对工件表面进行磨削加工，通过高速旋转的磨具与工件之间的摩擦，去除材料，达到所需的形状和尺寸精度。</p>
+</li>
+<li>
+<p>应用：用于制造汽车零件、可重复使用的瓶子和其他金属或非金属物件。</p>
+</li>
+</ul>
+<p><strong>锻压机</strong></p>
+<ul>
+<li>
+<p>原理：通过巨大的压力使金属坯料发生塑性变形，形成所需的形状和尺寸。锻压机可以是锤式、压力机式或螺旋式。</p>
+</li>
+<li>
+<p>应用：用于制造高强度的机械零件，如汽车的曲轴、连杆等。</p>
+</li>
+</ul>
+<h4 id="_11">传动机械</h4>
+<p>传动机械主要用于改变或传递运动、力量和能量，常见的传动机械包括齿轮传动、皮带传动、链条传动等。</p>
+<p><strong>齿轮传动</strong></p>
+<ul>
+<li>
+<p>原理：通过齿轮的互相啮合来传递运动和力量。齿轮传动可以实现不同的传动比，改变速度和扭矩。</p>
+</li>
+<li>
+<p>应用：广泛应用于各种机械设备中，如汽车变速器、工业机床等。</p>
+</li>
+</ul>
+<p><strong>皮带传动</strong></p>
+<ul>
+<li>
+<p>原理：利用柔性带状物（如V带、平带）将运动从一个轮子传递到另一个轮子。皮带传动通过摩擦力传递动力，可以实现远距离传动。</p>
+</li>
+<li>
+<p>应用：常见于汽车发动机、机械设备中，用于驱动风扇、水泵等。</p>
+</li>
+</ul>
+<p><strong>链条传动</strong></p>
+<ul>
+<li>
+<p>原理：通过链条和链轮的啮合传递动力。链条传动可以传递较大的扭矩，适用于重载和高速传动。</p>
+</li>
+<li>
+<p>应用：广泛用于摩托车、自行车、输送机等设备中。</p>
+</li>
+</ul>
+<h4 id="_12">液压机械</h4>
+<p>液压机械通过液体在封闭的管路中传递压力来实现力的传递和转换，具有起动力大、调速范围广和传动效率高等优点。</p>
+<p><strong>液压泵</strong></p>
+<ul>
+<li>
+<p>原理：将机械能转化为液压能，通过泵的往复运动或旋转运动，使液压油产生压力。</p>
+</li>
+<li>
+<p>应用：用于液压系统中，为液压缸、液压马达等提供动力。</p>
+</li>
+</ul>
+<p><strong>液压缸</strong></p>
+<ul>
+<li>
+<p>原理：将液压能转化为机械能，通过液压油的压力推动活塞运动，实现直线或往复运动。</p>
+</li>
+<li>
+<p>应用：广泛用于工程机械、工业自动化设备中，如挖掘机的臂杆伸缩、压机的上下运动等。</p>
+</li>
+</ul>
+<p><strong>液压马达</strong></p>
+<ul>
+<li>
+<p>原理：将液压能转化为机械能，通过液压油的压力驱动马达旋转。</p>
+</li>
+<li>
+<p>应用：用于驱动各种旋转设备，如船舶的舵机、工程机械的回转机构等。</p>
+</li>
+</ul>
+<h4 id="_13">气动机械</h4>
+<p>气动机械通过压缩空气实现动力和运动，具有动作迅速、控制方便、维护简单等优点。</p>
+<p><strong>气缸</strong></p>
+<ul>
+<li>
+<p>原理：将压缩空气的压力能转化为机械能，通过气缸内的活塞运动实现直线或往复运动。</p>
+</li>
+<li>
+<p>应用：广泛用于自动化生产线、机器人、包装机械等，如气动抓手、气动夹具等。</p>
+</li>
+</ul>
+<p><strong>气动马达</strong></p>
+<ul>
+<li>
+<p>原理：将压缩空气的压力能转化为机械能，通过气动马达的旋转运动驱动设备。</p>
+</li>
+<li>
+<p>应用：用于驱动各种旋转设备，如工具的驱动、小型发电机等。</p>
+</li>
+</ul>
+<p><strong>气动阀</strong></p>
+<ul>
+<li>
+<p>原理：控制压缩空气的流向和流量，实现气动系统的控制。</p>
+</li>
+<li>
+<p>应用：用于气动系统的控制，如气动抓手的开合控制、气缸的伸缩控制等。</p>
+</li>
+</ul>
+<h4 id="_14">机器人</h4>
+<p>机器人是一种高度自动化的机械装置，能够执行复杂的任务，广泛应用于工业、医疗、服务等领域。</p>
+<p><strong>工业机器人</strong></p>
+<ul>
+<li>
+<p>原理：通过机械臂和控制系统，实现精确的运动和操作。工业机器人可以是关节型、直角坐标型、多关节型等。</p>
+</li>
+<li>
+<p>应用：广泛用于汽车制造、电子设备制造、焊接、喷涂、搬运等。</p>
+</li>
+</ul>
+<p><strong>服务机器人</strong></p>
+<ul>
+<li>
+<p>原理：通过传感器和控制系统，实现自主导航、避障、任务执行等功能。</p>
+</li>
+<li>
+<p>应用：用于家庭服务、医疗护理、物流配送等。</p>
+</li>
+</ul>
+<h3 id="_15">信息机械</h3>
+<p>信息机械是指将机械技术与信息技术相结合，通过传感器、控制器、执行器等部件实现信息的采集、处理和控制，从而实现自动化和智能化操作的机械系统。信息机械广泛应用于工业自动化、智能交通、医疗设备、机器人等领域。</p>
+<h4 id="_16">信息机械的类型</h4>
+<p><strong>机器视觉系统</strong></p>
+<p>原理：机器视觉系统通过CCD或CMOS摄像头捕捉图像，将图像信号传输到图像处理系统。图像处理系统对图像进行分析，提取目标的特征（如面积、数量、位置、长度等），并根据预设的条件输出结果，实现自动识别和检测功能。机器视觉系统在工业检测中的应用非常广泛，主要体现在以下几个方面：</p>
+<p><strong>质量控制</strong></p>
+<p>机器视觉系统可以自动检测产品是否存在缺陷，从而大幅提升检测速度和准确率。传统的质量检查往往依赖人工，这不仅效率低下，成本高昂，而且受人为因素影响较大。通过应用图像识别技术，机器视觉系统可以自动检测产品是否存在缺陷，如裂纹、划痕、颜色不均等问题。
+示例：在生产车间中，一个基于计算机视觉的质量检测系统能够对每个经过流水线的产品进行实时图像采集，并通过深度学习模型（如卷积神经网络）对图像进行分析，快速识别出任何异常情况。通过这种方式，系统可以实现高效、精准的质量控制，减少废品率。</p>
+<p><strong>物体检测与分拣</strong></p>
+<p>物体检测是图像识别在工业中的另一大重要应用。工业生产线通常会处理大量不同类型的物体，而这些物体可能根据大小、形状或颜色进行分类。图像识别技术能够实现这些物体的自动识别和分类，极大提高了分拣的效率。
+示例：在食品包装流水线上，摄像头可以捕获经过的包装盒图像，图像识别系统可以检测出其内容是否正确，是否有产品损坏等。在这个场景中，使用YOLO（You Only Look Once）等实时物体检测模型，能够以极高的速度完成图像中的物体识别和分类任务，从而满足流水线分拣的实时需求。</p>
+<p><strong>机器人视觉导航</strong></p>
+<p>随着工业自动化的深入，越来越多的机器人被应用到工厂中执行复杂的任务。在这些应用中，机器人需要依靠视觉系统进行导航。通过图像识别，机器人能够实时感知周围的环境，识别出障碍物、路径标志或其他物体，进而自主规划路径或执行特定任务。
+示例：在大型仓库中，机器人可以通过视觉系统识别货架的位置和通道中的障碍物，从而规划最优路径搬运货物。机器人视觉导航系统的实时性和准确性要求很高，因此通常使用轻量化的深度学习模型，如MobileNet，与摄像头硬件结合，实现高效的路径识别和动态避障。</p>
+<p><strong>工业检测中的安全监控</strong></p>
+<p>工业车间的环境往往较为复杂，存在很多安全隐患。通过图像识别技术，可以实时监控工人的行为，确保其遵循安全规范。例如，系统可以检测工人是否佩戴安全帽，是否进入了危险区域等。一旦发现违规操作，系统可以立即发出警告，防止潜在事故的发生。
+例如：
+- <em>仪表板总成智能集成测试系统</em>：用于检测汽车仪表板总成的质量，包括速度表等五个仪表指针的指示误差和24个信号报警灯及若干照明灯是否损坏或漏装。该系统实现了智能化、全自动、高精度、快速质量检测，克服了人工检测的误差，提高了检测效率。</p>
+<ul>
+<li>
+<p><em>金属板表面自动控伤系统</em>：用于检测金属表面缺陷，如大型电力变压器线圈扁平线、收音机朦胧皮等。该系统利用线阵CCD的自扫描特性与被检查钢板X方向的移动相结合，取得金属板表面的三维图像信息，避免了接触式测量可能带来的新划伤。</p>
+</li>
+<li>
+<p><em>汽车车身检测系统</em>：用于检测汽车车身轮廓尺寸精度。英国ROVER汽车公司800系列汽车车身轮廓尺寸精度的100%在线检测系统由62个测量单元组成，每个测量单元包括一台激光器和一个CCD摄像机，检测精度为±0.1mm。</p>
+</li>
+<li>
+<p><em>纸币印刷质量检测系统</em>：用于检测纸币生产流水线上的纸币质量，通过对纸币20多项特征（号码、盲文、颜色、图案等）进行比较分析，替代传统的人眼辨别的方法。</p>
+</li>
+</ul>
+<h4 id="_17">信息机械的应用领域</h4>
+<p>信息机械通过将机械技术与信息技术相结合，实现了自动化和智能化操作，广泛应用于工业自动化、智能交通、医疗设备、消费电子等领域。了解信息机械的类型、原理和应用，有助于更好地选择和使用适合的信息机械方案，提高生产效率和生活质量。</p>
+<p><strong>工业自动化</strong></p>
+<ul>
+<li>
+<p>数字化设计：通过三维造型软件、数值计算软件和仿真分析软件，实现产品结构、性能、参数的计算和模拟，提高设计效率和质量。</p>
+</li>
+<li>
+<p>数控加工：通过计算机程序控制机床完成零件加工，提高加工精度和效率。</p>
+</li>
+<li>
+<p>智能生产：全面提升生产操作与生产管理的智能化水平，包括生产工艺优化、生产管理和运营管理。</p>
+</li>
+</ul>
+<p><strong>智能交通</strong></p>
+<ul>
+<li>
+<p>交通管理：通过摄像头和传感器采集交通数据，实现交通流量监测、违章检测和智能信号控制。</p>
+</li>
+<li>
+<p>自动驾驶：利用机器视觉、雷达和传感器等技术，实现车辆的自动驾驶和辅助驾驶功能。</p>
+</li>
+</ul>
+<p><strong>医疗设备</strong></p>
+<ul>
+<li>
+<p>医疗图像分析：用于血液细胞分类、染色体分析、癌症细胞识别等，提高诊断的准确性和效率。</p>
+</li>
+<li>
+<p>智能医疗器械：如智能手术机器人、可穿戴医疗设备等，实现医疗操作的自动化和智能化。</p>
+</li>
+</ul>
+<p><strong>消费电子</strong></p>
+<ul>
+<li>
+<p>传感器应用：如加速度计、陀螺仪等用于智能手机、平板电脑等设备的运动检测和姿态控制。</p>
+</li>
+<li>
+<p>智能穿戴设备：如智能手表、健康手环等，实现健康监测和运动跟踪功能。</p>
+</li>
+</ul>
+<h2 id="_18">机械的功能</h2>
+<p>机械的功能是多方面的，涵盖了生产、生活、科研等诸多领域。</p>
+<h3 id="_19">生产领域</h3>
+<h4 id="_20">加工制造功能</h4>
+<p><strong>切削加工</strong>：各类机床通过刀具对工件进行切削，改变工件的形状、尺寸和表面质量。</p>
+<ul>
+<li>例如，车床可以加工回转体零件，如轴类、盘类零件。通过车刀的旋转和进给运动，将毛坯材料加工成所需的外圆、内孔、螺纹等形状；铣床则用于加工平面、沟槽、成形面等，通过铣刀的旋转和工件的移动，实现复杂的平面和曲面加工。</li>
+</ul>
+<p><strong>铸造加工</strong>：将金属液浇入铸型中，待其冷却凝固后获得具有一定形状和性能的铸件。</p>
+<ul>
+<li>例如，在生产大型铸铁件如机床床身、发动机缸体等时，先根据零件形状制作木模，然后用砂子等材料制作铸型，将熔化的铁水浇入铸型型腔，冷却后取出铸件，再进行后续的清理和加工。铸造加工能够生产形状复杂、尺寸较大的零件，且生产成本相对较低。</li>
+</ul>
+<p><strong>锻造加工</strong>：利用锻压设备对金属坯料施加压力，使其发生塑性变形，从而获得具有一定形状、尺寸和力学性能的锻件。</p>
+<ul>
+<li>例如，汽车的曲轴、连杆等重要零件通常采用锻造加工。锻造可以改善金属的内部组织，提高零件的强度和韧性，使零件能够承受较大的载荷和冲击。</li>
+</ul>
+<h4 id="_21">物料搬运功能</h4>
+<p><strong>起重机械</strong>：如起重机、行车等，用于垂直起吊和水平搬运重物。</p>
+<ul>
+<li>例如，在建筑工地，塔式起重机可以将建筑材料如钢筋、混凝土预制构件等从地面吊运到高空作业面；在仓库和物流中心，桥式起重机可以方便地在仓库内搬运货物，实现货物的堆垛和装卸。</li>
+</ul>
+<p><strong>输送机械</strong>：包括皮带输送机、链式输送机、螺旋输送机等，用于连续输送物料。</p>
+<ul>
+<li>例如，在煤炭、矿石等散料的运输中，皮带输送机可以将物料从开采地点或存储场所连续不断地输送到加工车间或运输车辆；在食品加工企业，链式输送机可以将包装好的食品从生产线输送到仓库或装车区。</li>
+</ul>
+<h4 id="_22">装配功能</h4>
+<p><strong>自动化装配线</strong>：在汽车制造、电子设备生产等行业广泛应用。</p>
+<ul>
+<li>例如，汽车装配，各个零部件如发动机、底盘、车身等在装配线上按照一定的顺序和工艺要求进行组装。自动化装配线通过机器人、传送带、定位装置等设备，实现零部件的精确装配，提高装配效率和质量，保证汽车的性能和一致性。</li>
+</ul>
+<p><strong>手工装配工位</strong>：在一些精度要求高、批量较小或需要特殊装配工艺的场合，仍需手工装配。</p>
+<p>例如，精密仪器的装配，装配人员需要借助放大镜、精密工具等，将微小的零部件如齿轮、轴承等精确地安装到仪器内部，保证仪器的精度和可靠性。</p>
+<h3 id="_23">生活领域</h3>
+<h4 id="_24">交通运输功能</h4>
+<p><strong>汽车</strong>：是现代社会最主要的陆地交通工具之一。</p>
+<p>它通过内燃机（汽油机或柴油机）或电动机驱动车轮旋转，实现人员和货物的快速移动。汽车具有灵活机动、舒适便捷的特点，能够适应各种路况和运输需求，极大地提高了人们的出行效率和生活质量。</p>
+<p><strong>火车</strong>：主要用于长距离、大批量的人员和货物运输。</p>
+<p>高速列车如动车组、高铁，通过电力驱动，能够在铁路上以较高的速度运行，缩短了城市之间的时空距离；货运列车则可以运输大量的煤炭、矿石、粮食等物资，是国家经济建设的重要运输力量。</p>
+<p><strong>船舶</strong>：在水上运输中发挥着重要作用。</p>
+<ul>
+<li>
+<p>客船用于人员的水上运输，如游轮可以搭载大量游客进行海上旅游，提供住宿、餐饮、娱乐等服务；</p>
+</li>
+<li>
+<p>货船则用于运输各种货物，包括集装箱、散货、油品等，是国际贸易和国内物资调配的重要运输方式。</p>
+</li>
+</ul>
+<p><strong>飞机</strong>：是最快的交通运输工具。</p>
+<ul>
+<li>
+<p>客机能够快速地将人员从一个城市运输到另一个城市，特别是对于长途旅行和紧急出行具有无可比拟的优势；</p>
+</li>
+<li>
+<p>货机则用于运输高价值、时效性强的货物，如电子产品、鲜花、生鲜食品等，保证货物能够及时、安全地到达目的地。</p>
+</li>
+</ul>
+<h4 id="_25">家用电器功能</h4>
+<p><strong>制冷功能</strong>：如冰箱、空调等。</p>
+<ul>
+<li>
+<p>冰箱通过制冷系统的工作，将箱内的热量吸收并散发到外部环境，使箱内保持低温，用于储存食物、药品等易腐物品，延长其保鲜期；</p>
+</li>
+<li>
+<p>空调则可以调节室内温度和湿度，通过制冷或制热模式，使室内环境达到舒适的温度范围，提高人们的生活舒适度。</p>
+</li>
+</ul>
+<p><strong>清洁功能</strong>：如洗衣机、吸尘器等。</p>
+<ul>
+<li>
+<p>洗衣机利用机械搅拌、水流冲击等方式，配合洗涤剂，将衣物上的污渍清洗干净，大大减轻了人们的洗衣负担；</p>
+</li>
+<li>
+<p>吸尘器通过产生负压，将地面、家具表面的灰尘、垃圾等吸入集尘袋或集尘桶内，保持室内环境的清洁卫生。</p>
+</li>
+</ul>
+<p><strong>烹饪功能</strong>：如电饭煲、微波炉、烤箱等。</p>
+<ul>
+<li>
+<p>电饭煲能够自动控制加热过程，将米煮成饭，还可以用于炖汤、蒸菜等；</p>
+</li>
+<li>
+<p>微波炉通过微波加热食物，加热速度快，且能够较好地保持食物的营养成分；</p>
+</li>
+<li>
+<p>烤箱则可以用于烘烤面包、蛋糕、肉类等食物，使食物表面形成美味的焦脆层，增加食物的口感和风味。</p>
+</li>
+</ul>
+<h3 id="_26">科研领域</h3>
+<h4 id="_27">实验测量功能</h4>
+<p><strong>精密仪器</strong>：如电子天平、光谱仪、示波器等。</p>
+<ul>
+<li>
+<p>电子天平可以精确地测量物体的质量，其精度可达毫克甚至微克级别，广泛应用于化学分析、材料研究等领域；</p>
+</li>
+<li>
+<p>光谱仪能够分析物质的光谱特性，通过测量物质对不同波长光的吸收、发射或散射情况，确定物质的成分、结构等信息，在物理、化学、生物等学科的科研中发挥着重要作用；</p>
+</li>
+<li>
+<p>示波器用于观察和测量电信号的波形、频率、幅度等参数，在电子技术、通信技术等领域的实验研究和故障诊断中不可或缺。</p>
+</li>
+</ul>
+<p><strong>实验装置</strong>：如风洞、水洞等。</p>
+<ul>
+<li>
+<p>风洞是用于模拟空气流动环境的实验装置，通过在风洞中放置模型，如飞机模型、汽车模型等，可以测量模型在不同风速、风向条件下的气动力、气动稳定性等参数，为航空航天、汽车等领域的设计和研究提供数据支持；</p>
+</li>
+<li>
+<p>水洞则是模拟水流环境的装置，用于研究船舶、潜艇等水下物体的水动力性能、流体噪声等特性，对船舶设计、海洋工程等科研工作具有重要意义。</p>
+</li>
+</ul>
+<h4 id="_28">模拟仿真功能</h4>
+<p><strong>机械模拟装置</strong>：如机械振动台、地震模拟台等。</p>
+<ul>
+<li>
+<p>机械振动台可以模拟各种振动环境，将被测物体或试验件安装在振动台上，通过控制振动的频率、振幅、波形等参数，研究物体在振动条件下的动态响应、疲劳寿命等性能。</p>
+</li>
+<li>
+<p>在航空航天领域，通过振动台试验可以检验飞机发动机、卫星等设备在飞行过程中承受振动的能力；</p>
+</li>
+<li>
+<p>地震模拟台则用于模拟地震时地面的运动情况，对建筑物、桥梁等结构进行抗震性能试验，为结构的抗震设计提供依据。</p>
+</li>
+</ul>
+<p><strong>虚拟样机</strong>：利用计算机辅助设计（CAD）、计算机辅助工程（CAE）等技术，建立机械产品的虚拟模型，并在虚拟环境中进行各种性能分析和仿真。</p>
+<ul>
+<li>
+<p>在汽车设计中，通过建立汽车整车的虚拟样机，可以在计算机上进行碰撞仿真，分析汽车在碰撞过程中的车身变形、乘员安全等情况，优化汽车的结构设计；</p>
+</li>
+<li>
+<p>还可以进行动力学仿真，模拟汽车的行驶性能，如加速性能、制动性能、操控稳定性等，提前发现和解决设计中存在的问题，缩短产品研发周期，降低研发成本。</p>
+</li>
+</ul>
+<h2 id="_29">视频讲解</h2>
+<p><strong>BiliBili：</strong> <a href="https://space.bilibili.com/1985904092/lists/1497284">视睿网络-哔哩哔哩视频 (bilibili.com)</a></p>
+<p><iframe
+  width=auto
+  height=auto
+  src="//player.bilibili.com/player.html?isOutside=true&aid=230442258&bvid=BV19h411w7rf&cid=1183170164&p=1" 
+  scrolling="no" 
+  border="0" 
+  frameborder="no" 
+  framespacing="0" 
+  allowfullscreen="true"></iframe>
+</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../01Mechanical_Structure/" class="btn btn-neutral float-left" title="机械结构（Mechanical Structure）"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../02Linkage_Mechanism/" class="btn btn-neutral float-right" title="连杆机构 （Linkage Mechanism）">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../01Mechanical_Structure/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../02Linkage_Mechanism/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
