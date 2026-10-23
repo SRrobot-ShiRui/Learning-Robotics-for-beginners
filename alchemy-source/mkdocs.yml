@@ -1,0 +1,19 @@
+site_name: SRrobot | 视睿机器人
+site_description: 机器人编程学习路径与《机器人炼金术》专栏
+repo_url: https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners
+theme:
+  name: material
+  language: zh
+  palette:
+    primary: deep orange
+  features:
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+nav:
+  - 首页: index.md
+  - 机器人炼金术:
+      - 专栏首页: alchemy/index.md
+      - 01 旋转矩阵到 SE(3): alchemy/01-se3-pose-representation.md
+      - 02 2026 人形机器人全景: alchemy/02-humanoid-2026-state.md
+      - 03 为什么机器人还不会叠衣服: alchemy/03-why-robots-cannot-fold-clothes.md
