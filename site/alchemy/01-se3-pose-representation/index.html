@@ -1,0 +1,1143 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="机器人编程学习路径与《机器人炼金术》专栏">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-humanoid-2026-state/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>01 旋转矩阵到 SE(3) - SRrobot | 视睿机器人</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="SRrobot | 视睿机器人" class="md-header__button md-logo" aria-label="SRrobot | 视睿机器人" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SRrobot | 视睿机器人
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 旋转矩阵到 SE(3)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  机器人炼金术
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SRrobot | 视睿机器人" class="md-nav__button md-logo" aria-label="SRrobot | 视睿机器人" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SRrobot | 视睿机器人
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器人炼金术
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    机器人炼金术
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专栏首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 旋转矩阵到 SE(3)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 旋转矩阵到 SE(3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        直觉层
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="直觉层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        机器人每时每刻都在回答同一个问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 个数，只有 3 个自由度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        左乘还是右乘：新手第一大坑
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进阶层
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="进阶层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#se3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SE(3)：把位姿当成一个群
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三种表示，三种代价
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一点历史：为什么这套路数在机器人界扎了根
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心代码逐句精讲
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案对比：功能、动机与替代写法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工程视角
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸阅读
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        付费版预览（订阅可见）
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-humanoid-2026-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 2026 人形机器人全景
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-why-robots-cannot-fold-clothes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 为什么机器人还不会叠衣服
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        直觉层
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="直觉层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        机器人每时每刻都在回答同一个问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 个数，只有 3 个自由度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        左乘还是右乘：新手第一大坑
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进阶层
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="进阶层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#se3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SE(3)：把位姿当成一个群
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三种表示，三种代价
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一点历史：为什么这套路数在机器人界扎了根
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心代码逐句精讲
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案对比：功能、动机与替代写法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工程视角
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸阅读
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        付费版预览（订阅可见）
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>01 旋转矩阵到 SE(3)</h1>
+
+<blockquote>
+<p>本文是「位姿与刚体几何」系列第 1 篇。配套代码：<a href="../code/se3_demo.py"><code>code/se3_demo.py</code></a>，所有结论都可以用脚本复现，建议边读边跑。</p>
+</blockquote>
+<h2 id="_1">直觉层</h2>
+<h3 id="_2">机器人每时每刻都在回答同一个问题</h3>
+<p>机械臂末端在哪、朝向哪边；无人机在空中是什么姿态；人形机器人的躯干相对地面歪了多少。这些问题全是同一个形式：<strong>一个刚体相对另一个刚体的位姿</strong>（position + orientation）。</p>
+<p>位置好办，三个数 <code>(x, y, z)</code> 就是全部。麻烦的是<strong>朝向</strong>。</p>
+<p>朝向为什么难？因为"转"不是三个独立数字能老实描述的东西。你可以用三个欧拉角，但飞机俯仰 90° 时，偏航和滚转突然变成同一个动作（万向锁）；你可以用四元数，四个数也很优雅，但两个四元数"相加平均"得到的不是中间姿态。</p>
+<p>最诚实的出发点是旋转矩阵：一个 3×3 的正交矩阵，9 个数。</p>
+<h3 id="9-3">9 个数，只有 3 个自由度</h3>
+<p>旋转矩阵 <code>R</code> 满足两个约束：</p>
+<ul>
+<li><code>RᵀR = I</code>（列向量互相垂直且为单位长）—— 6 个独立方程</li>
+<li><code>det(R) = +1</code>（不许把空间翻成镜像）—— 1 个方程</li>
+</ul>
+<p>9 − 6 − 1 = 2？不对，这些约束不独立，实际留给旋转的自由度是 <strong>3</strong>。你可以不背这个减法，直接做实验：对旋转矩阵的 9 个元素做数值扰动，看哪些方向"动得了"。配套代码的验证 <code>[1]</code> 做的就是这件事——</p>
+<div class="highlight"><pre><span></span><code>[1] 切空间数值雅可比 shape=(9, 3), rank=3
+</code></pre></div>
+<p>9 维空间里只有 3 个方向能动，其余 6 个方向一推就被正交性弹回来。<strong>旋转矩阵的冗余不是浪费，是它在替你守住"这是一个旋转"的承诺</strong>：你随手写一个 9 维向量，多半根本不是旋转；但你随手写一个接近正交的矩阵，它仍然是（近似的）旋转。这个性质后面做优化时有大用，先按下不表。</p>
+<h3 id="_3">左乘还是右乘：新手第一大坑</h3>
+<p>同样是"再绕 z 轴转 10°"，有两种完全不同的含义：</p>
+<ul>
+<li><code>R ← Rz(10°) · R</code>：<strong>在世界坐标系里</strong>转。机器人悬在空中，绕世界原点的 z 轴公转，位置会跟着画圆。</li>
+<li><code>R ← R · Rz(10°)</code>：<strong>在本体坐标系里</strong>转。机器人绕自己身上的 z 轴自转，位置不动。</li>
+</ul>
+<p>验证 <code>[4]</code> 把这件事量化了：只加旋转扰动时，左乘会顺带改变平移，右乘不会。这不是数学趣味，它直接决定了后面状态估计文章里"为什么 IMU 融合几乎总用右扰动"——因为扰动应该只影响姿态，不该把已经估计好的位置一起带偏。</p>
+<p><strong>记忆法</strong>：矩阵从右往左读。越靠右的动作，越发生在"更本体的"坐标系里。</p>
+<h2 id="_4">进阶层</h2>
+<h3 id="se3">SE(3)：把位姿当成一个群</h3>
+<p>齐次变换矩阵把旋转和平移打包成 4×4：</p>
+<div class="arithmatex">\[
+T = \begin{bmatrix} R &amp; t \\ 0 &amp; 1 \end{bmatrix} \in SE(3)
+\]</div>
+<p><code>SE(3)</code> 是一个<strong>李群</strong>：既是群（可乘、可逆），又是光滑流形（可以求导、可以做优化）。这句话是整个 M1 主线的钥匙，值得拆开：</p>
+<ul>
+<li><strong>群</strong>：两个位姿复合还是位姿（<code>T₁T₂</code>），逆还是位姿（<code>T⁻¹</code>）。</li>
+<li><strong>流形</strong>：位姿的集合不是一块平地，而是一个弯曲的曲面。你在曲面上做"线性插值""加法更新"，都会滑出曲面——除非你沿着曲面的<strong>切空间</strong>走。</li>
+</ul>
+<p>李代数 <code>se(3)</code> 就是 <code>SE(3)</code> 在单位元处的切空间。<code>exp</code> 映射负责从切空间"走回"曲面，<code>log</code> 反之。工程上你需要记住三条：</p>
+<p><strong>1. 指数映射有闭式解（Rodrigues 公式）</strong>，代码里的 <code>exp_so3</code> / <code>exp_se3</code> 各只有几行。这就是为什么机器人学库从不存欧拉角——存旋转向量或矩阵，更新时一步 <code>exp</code> 就回曲面。</p>
+<p><strong>2. <code>log</code> 在接近 π 时会病态</strong>。验证 <code>[2]</code> 显示正常角度往返误差 ~1e-11，而接近 π 时不仅精度下降，还有符号翻转问题（+π 和 −π 是同一个旋转）。如果你的优化器在某个迭代里姿态突然跳变 180°，十有八九是撞上了这里。处理方式：把旋转限制在 (−π, π) 内追踪连续性，或者干脆用增量式更新避免全局 <code>log</code>。</p>
+<p><strong>3. 参数残差和位姿残差不是一回事</strong>。验证 <code>[3]</code> 中，|φ| 较大时 <code>log(exp(ξ))</code> 的参数值可能和 ξ 不同，但回代后的<strong>位姿</strong>完全一致。做优化时，残差应该定义在位姿（或李代数差）上，而不是原始参数向量上——这是很多自研优化代码翻车的地方。</p>
+<h3 id="_5">三种表示，三种代价</h3>
+<table>
+<thead>
+<tr>
+<th>表示</th>
+<th>维数</th>
+<th>插值</th>
+<th>万向锁</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>欧拉角</td>
+<td>3</td>
+<td>直接线性插值</td>
+<td><strong>有</strong>，俯仰 ±90° 时退化</td>
+<td>人机交互、日志可读</td>
+</tr>
+<tr>
+<td>四元数</td>
+<td>4</td>
+<td>slerp/nlerp</td>
+<td>无</td>
+<td>运行时状态、IMU</td>
+</tr>
+<tr>
+<td>旋转矩阵 / 李代数</td>
+<td>9 / 3</td>
+<td>流形插值</td>
+<td>无</td>
+<td>优化、复合变换</td>
+</tr>
+</tbody>
+</table>
+<p>单轴旋转时三者都没问题，坑全在<strong>多轴耦合</strong>。配套代码的验证 <code>[5]</code> 做了一个实验：绕一根倾斜轴从单位阵转到 90°，比较"取一半"时各种插值方法偏离真实半程姿态多少度：</p>
+<div class="highlight"><pre><span></span><code>矩阵线性混合 (SVD 投影后)    0.000°     *（见下方说明）
+欧拉角线性插值         10.660°
+四元数归一化插值         0.000°
+</code></pre></div>
+<p>欧拉角插值在 90° 处偏差超过 10°，且误差随转角按 1−cos(θ/2) 增长——这就是为什么任何涉及"平滑转向"的功能（相机云台、动画、轨迹插值）都必须走四元数或流形插值。</p>
+<p><em>关于矩阵混合的说明：从单位阵出发转 t 角，中点矩阵恰好 SVD 投影回精确的半角旋转，所以误差为 0——这是这个特例的巧合，不是矩阵混合的一般性质。两个</em><em>任意</em><em>姿态的矩阵线性混合后偏差会很大，实验脚本改成任意起点即可验证，留给读者。</em></p>
+<h3 id="_6">一点历史：为什么这套路数在机器人界扎了根</h3>
+<p>把位姿当李群处理，在 1980 年代由 Murray、Li、Sastry 等人系统引入机器人学（《A Mathematical Introduction to Robotic Manipulation》是源头之一），此后经 MLS（Modern Robotics 教材）、Sophus/Ceres/GTSAM 等库的落地，已经成为状态估计和优化方向的事实标准。老教材（如 Craig）用的 DH 参数 + 欧拉角体系，在做优化时会处处撞上"更新量滑出流形"的问题——这也是后续第 3 篇（李代数与扰动模型）要正面回答的：<strong>优化器为什么必须知道流形的存在</strong>。</p>
+<h3 id="_7">核心代码逐句精讲</h3>
+<p>整个 <code>se3_demo.py</code> 里真正需要吃透的只有两个函数：<code>exp_so3</code>（Rodrigues 公式）和 <code>exp_se3</code>。下面逐句拆解，建议对照 <code>code/se3_demo.py</code> 原文件阅读。</p>
+<p><strong><code>exp_so3</code>：从旋转向量到旋转矩阵</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">exp_so3</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>                              <span class="c1"># (1)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>                <span class="c1"># (2)</span>
+    <span class="k">if</span> <span class="n">theta</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">:</span>                        <span class="c1"># (3)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">hat</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>            <span class="c1"># (3a)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">w</span> <span class="o">/</span> <span class="n">theta</span>                            <span class="c1"># (4)</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">hat</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>                               <span class="c1"># (5)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>                        <span class="c1"># (6)</span>
+            <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">K</span>              <span class="c1"># (6a)</span>
+            <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span> <span class="o">@</span> <span class="n">K</span><span class="p">))</span> <span class="c1"># (6b)</span>
+</code></pre></div>
+<ul>
+<li><strong>(1)</strong> 输入 <code>w</code> 是三维旋转向量：方向 = 旋转轴，长度 = 旋转角（rad），即李代数元素 <span class="arithmatex">\([\boldsymbol{\phi}]_\times\)</span> 的向量形式。</li>
+<li><strong>(2)</strong> 取模长得到旋转角 <span class="arithmatex">\(\theta = \|\boldsymbol{\phi}\|\)</span>。旋转的"大小"和"轴"从这里分离。</li>
+<li><strong>(3)</strong> 小角度保护。展开 <span class="arithmatex">\(\exp\)</span> 的级数 <span class="arithmatex">\(\exp([\phi]_\times) = I + [\phi]_\times + \tfrac{1}{2}[\phi]_\times^2 + \cdots\)</span>，当 <span class="arithmatex">\(\theta \to 0\)</span> 时只剩一阶项 <strong>(3a)</strong>——不保护的话，下面 <strong>(4)</strong> 除以 <span class="arithmatex">\(\theta\)</span> 会除零，且数值噪声会把结果搅乱。1e-12 这个阈值下，一阶近似误差在 <span class="arithmatex">\(10^{-24}\)</span> 量级，完全可忽略。</li>
+<li><strong>(4)</strong> 单位轴 <span class="arithmatex">\(k = w/\theta\)</span>。</li>
+<li><strong>(5)</strong> <code>hat</code> 把向量变成反对称矩阵 <span class="arithmatex">\([k]_\times\)</span>，作用是让"叉积"变成"矩阵乘法"：<span class="arithmatex">\([k]_\times v = k \times v\)</span>。这是全部推导的枢纽。</li>
+<li><strong>(6)</strong> Rodrigues 公式本体：<span class="arithmatex">\(\exp(\theta[k]_\times) = I + \sin\theta\,[k]_\times + (1-\cos\theta)\,[k]_\times^2\)</span>。<strong>注意这不是级数截断，是精确的闭式解</strong>——反对称矩阵的幂满足 <span class="arithmatex">\(K^3 = -K\)</span>，级数里每一项都能归并到这三项里，所以三行代码就是"精确的指数"，没有近似。这也是机器人学库普遍用它而不用通用矩阵指数（<code>scipy.linalg.expm</code>）的原因：快一个数量级，且没有特征值分解的数值副作用。</li>
+</ul>
+<p><strong><code>exp_se3</code>：从 twist 到 4×4 位姿</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">exp_se3</span><span class="p">(</span><span class="n">xi</span><span class="p">):</span>                             <span class="c1"># (1)</span>
+    <span class="n">rho</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">xi</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">xi</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>                <span class="c1"># (2)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>              <span class="c1"># (3)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>                           <span class="c1"># (4)</span>
+         <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span> <span class="o">/</span> <span class="n">theta</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">K</span>        <span class="c1"># (4a)</span>
+         <span class="o">+</span> <span class="p">(</span><span class="n">theta</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span> <span class="o">/</span> <span class="n">theta</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span> <span class="o">@</span> <span class="n">K</span><span class="p">))</span>  <span class="c1"># (4b)</span>
+    <span class="n">T</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">exp_so3</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>                 <span class="c1"># (5)</span>
+    <span class="n">T</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">J</span> <span class="o">@</span> <span class="n">rho</span>                       <span class="c1"># (6)</span>
+    <span class="k">return</span> <span class="n">T</span>
+</code></pre></div>
+<ul>
+<li><strong>(1)</strong> 输入 <code>xi</code>（six-vector，常记作 <span class="arithmatex">\(\xi\)</span> 或 <span class="arithmatex">\(\mathcal{V}\theta\)</span>）是 twist：前 3 维平移部分 <span class="arithmatex">\(\rho\)</span>，后 3 维旋转部分 <span class="arithmatex">\(\phi\)</span>。<strong>注意顺序约定</strong>：不同教材/库平移在前在后不统一（GTSAM 与本代码一致是平移在前；Sophus 是旋转在前），对接外部库时第一件事是核对这件事，错序是常见 bug。</li>
+<li><strong>(3)</strong> 旋转部分的模长 <span class="arithmatex">\(\theta\)</span> 仍然是"总旋转角"。</li>
+<li><strong>(4)</strong> 矩阵 <span class="arithmatex">\(J\)</span> 是 SE(3) 的<strong>左雅可比</strong> <span class="arithmatex">\(J_l(\theta)\)</span>，见 <strong>(4a)(4b)</strong>：它回答"绕固定轴转 <span class="arithmatex">\(\theta\)</span> 角的过程中，平移积累是多少"。系数 <span class="arithmatex">\(\frac{1-\cos\theta}{\theta^2}\)</span> 和 <span class="arithmatex">\(\frac{\theta-\sin\theta}{\theta^3}\)</span> 来自对 <span class="arithmatex">\(\int_0^\theta \exp(s[\omega]_\times)\,ds\)</span> 逐项积分——平移不是简单地把 <span class="arithmatex">\(\rho\)</span> 抄进矩阵第四列，因为旋转和平移是同时发生的。</li>
+<li><strong>(5)</strong> 旋转块直接复用 <code>exp_so3</code>，没有任何新东西。</li>
+<li><strong>(6)</strong> 平移块 <span class="arithmatex">\(= J_l(\theta)\,\rho\)</span>。直觉版本：<span class="arithmatex">\(\rho\)</span> 是"随旋转发生的直线运动"，<span class="arithmatex">\(J\)</span> 把它"扭"成螺旋线。这也是 SE(3) 元素的几何本质——<strong>螺旋运动</strong>（screw motion），Chasles 定理说任何刚体位移都能表示成一次螺旋。</li>
+</ul>
+<blockquote>
+<p>逐句讲解的完整原则：核心函数逐行精讲（如上）、工具函数逐段讲、验证脚本只讲结论。后续每篇理论篇都会带这样的部分，案例番外的逐句比例更高。</p>
+</blockquote>
+<h3 id="_8">方案对比：功能、动机与替代写法</h3>
+<p><strong>这两个函数实现什么</strong>：它们是"李代数 ↔ 李群"的桥。整条流水线里的位置是——IMU 给出角速度增量（李代数侧），优化器在切空间里算更新量（李代数侧），而机器人的真实状态必须存成位姿（李群侧）。没有 <code>exp/log</code>，两边数据无法碰面。</p>
+<p><strong>为什么这样写</strong>：两个约束决定了当前实现——(a) <strong>零重依赖</strong>：只靠 numpy，读者 clone 即跑；(b) <strong>教学透明</strong>：每一步都能对应到公式，出问题可以逐行查。下面会看到，生产环境中你多半不该自己写它。</p>
+<p><strong>替代写法对比</strong>（实测：200 个随机旋转向量，角度 0~3 rad 均匀分布，scipy 1.17 / numpy 2.3，Python 3.11）：</p>
+<table>
+<thead>
+<tr>
+<th>写法</th>
+<th>最大误差</th>
+<th>单次耗时*</th>
+<th>依赖</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本文 Rodrigues 公式</td>
+<td>5e-14</td>
+<td>~2.2 µs</td>
+<td>numpy</td>
+<td>精确闭式解，教学首选</td>
+</tr>
+<tr>
+<td>泰勒级数截断（8 项）</td>
+<td><strong>2.3e3</strong></td>
+<td>~4.3 µs</td>
+<td>numpy</td>
+<td><strong>大角度直接发散，禁用</strong></td>
+</tr>
+<tr>
+<td><code>scipy.linalg.expm(hat(w))</code></td>
+<td>0（基准）</td>
+<td>~2.7 µs</td>
+<td>scipy</td>
+<td>最通用，但对反对称阵浪费：内部走帕德逼近+缩放平方，纯杀鸡用牛刀</td>
+</tr>
+<tr>
+<td><code>scipy.Rotation.from_rotvec</code></td>
+<td>5e-14</td>
+<td>~2.5 µs</td>
+<td>scipy</td>
+<td>工程首选：库维护、批量接口、C 实现</td>
+</tr>
+</tbody>
+</table>
+<p>* Python 层耗时主要被解释器开销主导，四种写法差距不大；<strong>在 C++ 环境里差距会拉大一个数量级</strong>——Rodrigues 是十几条浮点指令，<code>expm</code> 是特征分解级别的重活。控制环路 1 kHz 下每周期要做几十次这种变换，C++ 里这个差异是真实的。</p>
+<p>三个写法要点值得展开：</p>
+<ol>
+<li><strong>级数截断为什么崩了</strong>：矩阵指数级数 <span class="arithmatex">\(\sum \frac{K^n}{n!}\)</span> 只在 <span class="arithmatex">\(\|K\|\)</span> 小时收敛快。反对称阵的范数就是旋转角，<span class="arithmatex">\(\theta &gt; \pi\)</span> 时 8 项远不够，误差按 <span class="arithmatex">\(\theta^n/n!\)</span> 爆炸——实测 2.3e3 的误差就是这个来源。这解释了为什么所有正规库都用 Rodrigues（旋转）或帕德逼近（一般矩阵），没人用裸级数。</li>
+<li><strong><code>scipy.Rotation</code> vs 自己写</strong>：生产代码用前者（久经测试、双覆盖/万向锁边界都处理过）；但只会调库的人读不懂 VIO 源码，也写不出流形优化——教学场景自己写一遍不可省。</li>
+<li><strong><code>expm</code> 的正确定位</strong>：它不是错，是浪费。遇到<strong>非反对称</strong>的一般矩阵指数（如时变线性化系统 <span class="arithmatex">\(\exp(At)\)</span>）时它是正确工具。工具没有高下，只有场景。</li>
+</ol>
+<p><strong>如实说明</strong>：如果本篇目标只是"最快出活"，<code>scipy.Rotation</code> 就够了，本文的手写版在性能上并无优势——选它的理由是 (a)(b) 两条约束。案例番外 A（手眼标定）起，涉及批量变换时会切换到 <code>scipy.Rotation</code> 或 PyTorch 向量化实现，并再跑一次同样的对比表。</p>
+<h2 id="_9">工程视角</h2>
+<ul>
+<li><strong>ROS / tf2</strong> 里每一个坐标变换就是一个 <code>SE(3)</code>。你调过的"机械臂到位但姿态歪 10°"，多半是左乘右乘用反了，或者欧拉角顺序（ZYX 还是 XYZ）和对方约定不一致。</li>
+<li><strong>IMU 输出的是四元数</strong>，而优化器内部往往用李代数增量。两者的桥就是 <code>exp/log</code>。理解本文，后面读 VIO、手眼标定源码才不会停留在"抄公式"层面。</li>
+<li><strong>日志排查技巧</strong>：打印位姿时永远附上 det(R) 和 RᵀR−I 的范数。如果不是 1 和 0，说明上游某处把矩阵当普通数组操作了，误差会随时间指数放大。</li>
+</ul>
+<h2 id="_10">延伸阅读</h2>
+<ul>
+<li>教材：Lynch &amp; Park, <em>Modern Robotics</em>（第 3 章），免费 PDF 官方提供，李群视角讲得最干净</li>
+<li>综述：Sola 等人, <em>A micro Lie theory for state estimation in robotics</em>（arXiv:1812.01537），后续几篇的蓝本</li>
+<li>下一篇（第 3 篇）：李群与李代数——扰动模型为什么用右扰动</li>
+<li>配套代码：<a href="../code/se3_demo.py"><code>se3_demo.py</code></a>，仅依赖 numpy/scipy，<code>--plot</code> 出图</li>
+</ul>
+<h2 id="_11">付费版预览（订阅可见）</h2>
+<p>本文付费版（<a href="premium/01-se3-pose-representation.md"><code>premium/01</code></a>）在免费版之上增加：</p>
+<ol>
+<li><strong>SE(3) 指数映射完整推导</strong>：从微分方程到 <span class="arithmatex">\(J_l\)</span> 的逐项积分，含三种"常见错法"（<span class="arithmatex">\([\phi]_\times\)</span> 归一化混淆、<span class="arithmatex">\(\theta\to 0\)</span> 爆炸、<span class="arithmatex">\(J_l/J_r\)</span> 混用的症状识别）</li>
+<li><strong>log 边界病态的完整翻车复盘</strong>：第一版实现在 θ→π 实测误差 3.6e-3 rad，误差放大链条逐层定位，最终换成 Shepperd 四元数路径，全区间精度提升 4 个数量级</li>
+<li><strong>边界压力测试代码</strong>：2 万例边界采样 + 双值性测试 + 性能基准（<code>se3_boundary_test.py</code>），以及优化器符号跳变、多旋转均值、slerp 远弧三个工程后果的排查方法</li>
+</ol>
+<hr />
+<p><strong>完整内容链接（完整可用代码）</strong>：<a href="https://blog.csdn.net/2301_81238088/category_13220213.html">https://blog.csdn.net/2301_81238088/category_13220213.html</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
