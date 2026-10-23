@@ -28,15 +28,6 @@
 - 机械/自动化/计算机专业学生（需要系统的机器人学数学基础）
 - 具身智能从业者（需要前沿模型解读与可复现的代码实现）
 
-## 快速开始
-
-```bash
-# 本地构建本站
-git clone https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners.git
-cd Learning-Robotics-for-beginners
-pip install mkdocs mkdocs-material pymdown-extensions
-mkdocs serve        # 浏览器打开 http://127.0.0.1:8000
-```
 
 ## 关键词
 
