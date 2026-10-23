@@ -433,11 +433,11 @@ nav:
     - "08Kinematic Analysis": "docs/tutorial/Robot_theorems/08Kinematic_Analysis.md"
     - "09Kinematics Modeling & Simulation": "docs/tutorial/Robot_theorems/09Kinematics_Modeling_&_Simulation.md"
     - "10Mechanical Structure Explain": "docs/tutorial/Robot_theorems/10Mechanical_Structure_Explain.md"
-- 机器人炼金术:
-  - "index": "docs/alchemy/index.md"
-  - "01-se3-pose-representation": "docs/alchemy/01-se3-pose-representation.md"
-  - "02-humanoid-2026-state": "docs/alchemy/02-humanoid-2026-state.md"
-  - "03-why-robots-cannot-fold-clothes": "docs/alchemy/03-why-robots-cannot-fold-clothes.md"
+- Robot_Alchemy:
+  - "目录": "docs/Robot_Alchemy/index.md"
+  - "01-se3-pose-representation": "docs/Robot_Alchemy/01-se3-pose-representation.md"
+  - "02-humanoid-2026-state": "docs/Robot_Alchemy/02-humanoid-2026-state.md"
+  - "03-why-robots-cannot-fold-clothes": "docs/Robot_Alchemy/03-why-robots-cannot-fold-clothes.md"
 
 theme: readthedocs
 

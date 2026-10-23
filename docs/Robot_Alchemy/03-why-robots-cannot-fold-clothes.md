@@ -61,7 +61,7 @@
 
 - 数据来源：Figure 03 家庭测试（[OB News](https://obnews.co/Index/flowNewsDetail/id/17520673) / [MaxBiT](https://maxbit.cc/humanoid-robot-makers-report-training-advances-amid-intensifying-competition-5224.html)）；工厂数据（[Robot News Today](https://robotnewstoday.com/reports/robot-explosion-2026)）
 - 系列衔接：本文是第 11 篇（接触力学）、第 16 篇（数据飞轮）、第 21 篇（执行器与传感器）的共同引子——读到那里你会回头发现，本文的每个"死结"都有一篇硬核展开
-- 付费版预览（订阅可见）：**四个死结的技术深挖**——布料仿真的三种技术路线对比（质点弹簧/有限元/学习型）、接触丰富操作的算法谱系（从强化学习到扩散策略）、以及"为什么 56% 这个数字其实被低估了"的口径分析，见 [`premium/03`](premium/03-why-robots-cannot-fold-clothes.md)
+- 付费版预览（订阅可见）：**四个死结的技术深挖**——布料仿真的三种技术路线对比（质点弹簧/有限元/学习型）、接触丰富操作的算法谱系（从强化学习到扩散策略）、以及"为什么 56% 这个数字其实被低估了"的口径分析，见 [CSDN 完整内容专栏](https://blog.csdn.net/2301_81238088/category_13220213.html)
 
 ---
 

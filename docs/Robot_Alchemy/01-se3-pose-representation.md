@@ -1,5 +1,5 @@
 
-> 本文是「位姿与刚体几何」系列第 1 篇。配套代码：[`code/se3_demo.py`](../code/se3_demo.py)，所有结论都可以用脚本复现，建议边读边跑。
+> 本文是「位姿与刚体几何」系列第 1 篇。配套代码：[`code/se3_demo.py`](https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners/blob/main/code/se3_demo.py)，所有结论都可以用脚本复现，建议边读边跑。
 
 ## 直觉层
 
@@ -174,6 +174,6 @@ def exp_se3(xi):                             # (1)
 - 教材：Lynch & Park, *Modern Robotics*（第 3 章），免费 PDF 官方提供，李群视角讲得最干净
 - 综述：Sola 等人, *A micro Lie theory for state estimation in robotics*（arXiv:1812.01537），后续几篇的蓝本
 - 下一篇（第 3 篇）：李群与李代数——扰动模型为什么用右扰动
-- 配套代码：[`se3_demo.py`](../code/se3_demo.py)，仅依赖 numpy/scipy，`--plot` 出图
+- 配套代码：[`se3_demo.py`](https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners/blob/main/code/se3_demo.py)，仅依赖 numpy/scipy，`--plot` 出图
 
 **完整内容链接（完整可用代码）**：<https://blog.csdn.net/2301_81238088/category_13220213.html>
