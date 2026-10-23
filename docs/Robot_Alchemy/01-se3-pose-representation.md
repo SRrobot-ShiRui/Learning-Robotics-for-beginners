@@ -177,3 +177,5 @@ def exp_se3(xi):                             # (1)
 - 配套代码：[`se3_demo.py`](https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners/blob/main/code/se3_demo.py)，仅依赖 numpy/scipy，`--plot` 出图
 
 **完整内容链接（完整可用代码）**：<https://blog.csdn.net/2301_81238088/category_13220213.html>
+
+**完整版每周二更新**，订阅后第一时间推送。

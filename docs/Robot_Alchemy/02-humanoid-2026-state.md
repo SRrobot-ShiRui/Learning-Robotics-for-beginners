@@ -63,3 +63,5 @@ Figure 在 30 个从未见过的家庭里测试 Figure 03，420 次尝试成功�
 - 来源：[Robot News Today 行业报告](https://robotnewstoday.com/reports/robot-explosion-2026) · [MaxBiT 报道](https://maxbit.cc/humanoid-robot-makers-report-training-advances-amid-intensifying-competition-5224.html) · [OB News](https://obnews.co/Index/flowNewsDetail/id/17520673) · [Robotica Guide](https://roboticaguide.com/best-humanoid-robots-2026)
 
 **完整内容链接（完整可用代码）**：<https://blog.csdn.net/2301_81238088/category_13220213.html>
+
+**完整版每周二更新**，订阅后第一时间推送。
