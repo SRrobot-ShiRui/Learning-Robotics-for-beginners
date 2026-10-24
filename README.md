@@ -4,7 +4,9 @@
 
 面向机器人学习者与从业者的系统化中文知识库：从 Arduino 入门到人形机器人前沿，覆盖数学基础、运动学、动力学、控制、状态估计与具身智能。
 
-**在线阅读**：https://srrobot-shirui.github.io/Learning-Robotics-for-beginners/
+🌐 **线上地址**：https://srrobot-shirui.github.io/Learning-Robotics-for-beginners/
+
+📖 **完整版地址**（CSDN 付费专栏，含完整可用代码，每周二更新）：https://blog.csdn.net/2301_81238088/category_13220213.html
 
 ## 这是什么
 
