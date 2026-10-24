@@ -1,3 +1,6 @@
+---
+description: "从旋转矩阵到 SE(3)：机器人位姿表示的系统讲解，含 Rodrigues 公式推导、Python 逐句实现与边界测试，机器人炼金术理论篇第 1 期"
+---
 
 > 本文是「位姿与刚体几何」系列第 1 篇。配套代码：[`code/se3_demo.py`](https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners/blob/main/code/se3_demo.py)，所有结论都可以用脚本复现，建议边读边跑。
 

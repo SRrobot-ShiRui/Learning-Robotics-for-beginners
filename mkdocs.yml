@@ -3,6 +3,9 @@ site_description: "机器人炼金术：机器人学数学、代码、机械与�
 site_author: "SRrobot 视睿机器人"
 site_url: https://SRrobot-ShiRui.github.io/Learning-Robotics-for-beginners/
 
+hooks:
+  - seo_hooks.py
+
 nav:
 - "主页": "index.md"
 - "关于": "about.md"
@@ -441,15 +444,55 @@ nav:
   - "02 humanoid 2026 state": "Robot_Alchemy/02-humanoid-2026-state.md"
   - "03 why robots cannot fold clothes": "Robot_Alchemy/03-why-robots-cannot-fold-clothes.md"
 
-theme: readthedocs
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.expand
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+
+plugins:
+  - search
+  - meta
 
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
   - tables
   - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners
+    - icon: fontawesome/brands/bilibili
+      link: https://space.bilibili.com/1985904092/lists/1497284
+    - icon: fontawesome/solid/rss
+      link: https://blog.csdn.net/2301_81238088
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
