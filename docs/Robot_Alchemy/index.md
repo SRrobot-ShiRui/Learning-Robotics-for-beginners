@@ -19,6 +19,9 @@ description: "机器人炼金术专栏目录：机器人学数学、代码、机
 | 01 | [机器人的"位置"到底是什么：从旋转矩阵到 SE(3)](01-se3-pose-representation.md) | 理论 |
 | 02 | [2026 年的人形机器人：从"演示视频"到"工时账单"](02-humanoid-2026-state.md) | 前沿 |
 | 03 | [为什么机器人还不会帮你叠衣服](03-why-robots-cannot-fold-clothes.md) | 爆款加更 |
+| 04 | [雅可比：机器人每秒都在做的"单位换算"](04-jacobian-velocity-translator.md) | 理论 |
+| 05 | [2026 机器人大脑之战：VLA 三条路线](05-robot-brain-race-vla.md) | 前沿 |
+| 06 | [灵巧手为什么这么难](06-dexterous-hand-why-hard.md) | 爆款 |
 
 ## 订阅
 

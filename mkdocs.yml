@@ -443,6 +443,9 @@ nav:
   - "01 se3 pose representation": "Robot_Alchemy/01-se3-pose-representation.md"
   - "02 humanoid 2026 state": "Robot_Alchemy/02-humanoid-2026-state.md"
   - "03 why robots cannot fold clothes": "Robot_Alchemy/03-why-robots-cannot-fold-clothes.md"
+  - "04 jacobian velocity translator": "Robot_Alchemy/04-jacobian-velocity-translator.md"
+  - "05 robot brain race vla": "Robot_Alchemy/05-robot-brain-race-vla.md"
+  - "06 dexterous hand why hard": "Robot_Alchemy/06-dexterous-hand-why-hard.md"
 
 theme:
   name: material
