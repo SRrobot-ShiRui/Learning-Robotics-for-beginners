@@ -446,6 +446,9 @@ nav:
   - "04 jacobian velocity translator": "Robot_Alchemy/04-jacobian-velocity-translator.md"
   - "05 robot brain race vla": "Robot_Alchemy/05-robot-brain-race-vla.md"
   - "06 dexterous hand why hard": "Robot_Alchemy/06-dexterous-hand-why-hard.md"
+  - "07 forward kinematics dh poe": "Robot_Alchemy/07-forward-kinematics-dh-poe.md"
+  - "08 inverse kinematics dls": "Robot_Alchemy/08-inverse-kinematics-dls.md"
+  - "09 rl humanoid sim2real": "Robot_Alchemy/09-rl-humanoid-sim2real.md"
 
 theme:
   name: material

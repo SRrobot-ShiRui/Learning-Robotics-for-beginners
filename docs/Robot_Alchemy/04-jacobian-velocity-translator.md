@@ -198,7 +198,7 @@ def dls_step(J, v, lam):                                 # (1)
 
 - 教材：Lynch & Park, *Modern Robotics*（第 5 章），几何雅可比与奇异性讲得最系统，免费 PDF 官方提供
 - 论文：Nakamura & Watanabe 对冗余臂零空间行为的经典分析；Siciliano 等人 *Robotics: Modelling, Planning and Control* 第 3 章（DLS 与奇异性鲁棒逆的谱系）
-- 下一篇（第 07 篇）：逆运动学——为什么机械臂会"抽风"：从迭代求逆到零空间自运动
+- 下一篇（第 07 篇）：[正运动学——DH 参数与 PoE 两种建模](07-forward-kinematics-dh-poe.md)；第 08 篇：[逆运动学——数值迭代、DLS 与冗余零空间](08-inverse-kinematics-dls.md)
 - 配套代码：[`jacobian_demo.py`](https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners/blob/main/code/jacobian_demo.py)，仅依赖 numpy/matplotlib，`--plot` 出图
 
 **完整内容链接（多种逆解方案对比、边界压力测试与完整可用代码）**：<https://blog.csdn.net/2301_81238088/category_13220213.html>

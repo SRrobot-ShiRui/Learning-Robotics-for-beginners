@@ -22,6 +22,9 @@ description: "机器人炼金术专栏目录：机器人学数学、代码、机
 | 04 | [雅可比：机器人每秒都在做的"单位换算"](04-jacobian-velocity-translator.md) | 理论 |
 | 05 | [2026 机器人大脑之战：VLA 三条路线](05-robot-brain-race-vla.md) | 前沿 |
 | 06 | [灵巧手为什么这么难](06-dexterous-hand-why-hard.md) | 爆款 |
+| 07 | [正运动学：从 DH 参数到乘积指数（PoE）公式](07-forward-kinematics-dh-poe.md) | 理论 |
+| 08 | [逆运动学：数值迭代、阻尼最小二乘与冗余自由度](08-inverse-kinematics-dls.md) | 理论 |
+| 09 | [强化学习做人形运动控制：从仿真到真机的 gap 清单](09-rl-humanoid-sim2real.md) | 前沿 |
 
 ## 订阅
 
