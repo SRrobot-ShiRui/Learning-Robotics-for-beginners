@@ -25,6 +25,9 @@ description: "机器人炼金术专栏目录：机器人学数学、代码、机
 | 07 | [正运动学：从 DH 参数到乘积指数（PoE）公式](07-forward-kinematics-dh-poe.md) | 理论 |
 | 08 | [逆运动学：数值迭代、阻尼最小二乘与冗余自由度](08-inverse-kinematics-dls.md) | 理论 |
 | 09 | [强化学习做人形运动控制：从仿真到真机的 gap 清单](09-rl-humanoid-sim2real.md) | 前沿 |
+| 10 | [刚体动力学：牛顿-欧拉递推（RNEA）到底在递推什么](10-rigid-body-dynamics-rnea.md) | 理论 |
+| 11 | [世界模型进机器人：预测未来，还是换个说法做规划](11-world-model-for-robots.md) | 前沿 |
+| 12 | [为什么机器人被推一下就倒，而你不会](12-why-robots-fall-when-pushed.md) | 爆款加更 |
 
 ## 订阅
 

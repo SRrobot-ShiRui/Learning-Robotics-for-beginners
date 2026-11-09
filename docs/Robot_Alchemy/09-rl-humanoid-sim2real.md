@@ -86,6 +86,7 @@ description: "强化学习做人形运动控制深度解读：为什么策略在
 - OpenAI Dactyl（2018 公开报道）：域随机化在灵巧操作上的极限测试
 - 本专栏相关：[第 03 篇 为什么机器人还不会叠衣服](03-why-robots-cannot-fold-clothes.md)（富接触操作为什么难）、[第 04 篇 雅可比](04-jacobian-velocity-translator.md)（模型方法这一侧）
 - 配套图：`figs/fig09-01-sim2real-gap.png`
+- 下一篇（第 10 篇）：[刚体动力学：牛顿-欧拉递推（RNEA）到底在递推什么](10-rigid-body-dynamics-rnea.md)——回到模型这一侧，看看「预测运动」的解析方程长什么样
 
 **完整内容链接（四层 gap 的量化实验复现、延迟注入训练的完整代码、执行器网络数据采集方案）**：<https://blog.csdn.net/2301_81238088/category_13220213.html>
 

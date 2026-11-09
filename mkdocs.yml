@@ -449,6 +449,9 @@ nav:
   - "07 forward kinematics dh poe": "Robot_Alchemy/07-forward-kinematics-dh-poe.md"
   - "08 inverse kinematics dls": "Robot_Alchemy/08-inverse-kinematics-dls.md"
   - "09 rl humanoid sim2real": "Robot_Alchemy/09-rl-humanoid-sim2real.md"
+  - "10 rigid body dynamics rnea": "Robot_Alchemy/10-rigid-body-dynamics-rnea.md"
+  - "11 world model for robots": "Robot_Alchemy/11-world-model-for-robots.md"
+  - "12 why robots fall when pushed": "Robot_Alchemy/12-why-robots-fall-when-pushed.md"
 
 theme:
   name: material
