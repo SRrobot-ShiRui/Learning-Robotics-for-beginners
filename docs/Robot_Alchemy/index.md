@@ -1,5 +1,5 @@
 ---
-description: "机器人炼金术专栏目录：机器人学数学、代码、机械、物理与前沿译文，每周二更新，免费版 + CSDN 完整版"
+description: "机器人炼金术专栏目录：已更新 15 期，覆盖 SE(3) 位姿、运动学、动力学、接触力学、状态估计、人形机器人前沿与论文复现成本，每周二更新，免费版 + CSDN 完整版"
 ---
 
 # 机器人炼金术
@@ -28,6 +28,9 @@ description: "机器人炼金术专栏目录：机器人学数学、代码、机
 | 10 | [刚体动力学：牛顿-欧拉递推（RNEA）到底在递推什么](10-rigid-body-dynamics-rnea.md) | 理论 |
 | 11 | [世界模型进机器人：预测未来，还是换个说法做规划](11-world-model-for-robots.md) | 前沿 |
 | 12 | [为什么机器人被推一下就倒，而你不会](12-why-robots-fall-when-pushed.md) | 爆款加更 |
+| 13 | [接触力学入门：摩擦锥、互补条件，以及腿式机器人为什么会抖](13-contact-mechanics-friction-cone.md) | 理论 |
+| 14 | [复现一篇机器人论文，真实成本是多少](14-cost-of-reproducing-a-paper.md) | 前沿 |
+| 15 | [机器人为什么闭着眼走两步就歪：从 IMU 漂移说起](15-why-robots-drift-without-vision.md) | 爆款加更 |
 
 ## 订阅
 

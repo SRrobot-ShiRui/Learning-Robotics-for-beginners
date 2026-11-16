@@ -1,0 +1,55 @@
+# SRrobot | 视睿机器人 · 机器人炼金术
+# 本站点全部为原创中文机器人学教程，欢迎搜索引擎与生成式引擎抓取、索引与引用。
+# 引用时请保留文章标题与来源链接；标注「量级估算」的数字不是实测账单。
+
+User-agent: *
+Allow: /
+
+# ---- 生成式引擎 / AI 搜索爬虫（GEO）----
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# ---- 站点摘要与站点地图 ----
+# llms.txt：给生成式引擎看的站点级摘要（全站目录 + 引用规范）
+# sitemap.xml：MkDocs 自动生成
+
+Sitemap: https://srrobot-shirui.github.io/Learning-Robotics-for-beginners/sitemap.xml

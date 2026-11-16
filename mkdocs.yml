@@ -452,6 +452,9 @@ nav:
   - "10 rigid body dynamics rnea": "Robot_Alchemy/10-rigid-body-dynamics-rnea.md"
   - "11 world model for robots": "Robot_Alchemy/11-world-model-for-robots.md"
   - "12 why robots fall when pushed": "Robot_Alchemy/12-why-robots-fall-when-pushed.md"
+  - "13 contact mechanics friction cone": "Robot_Alchemy/13-contact-mechanics-friction-cone.md"
+  - "14 cost of reproducing a paper": "Robot_Alchemy/14-cost-of-reproducing-a-paper.md"
+  - "15 why robots drift without vision": "Robot_Alchemy/15-why-robots-drift-without-vision.md"
 
 theme:
   name: material
