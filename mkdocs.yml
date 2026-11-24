@@ -455,6 +455,9 @@ nav:
   - "13 contact mechanics friction cone": "Robot_Alchemy/13-contact-mechanics-friction-cone.md"
   - "14 cost of reproducing a paper": "Robot_Alchemy/14-cost-of-reproducing-a-paper.md"
   - "15 why robots drift without vision": "Robot_Alchemy/15-why-robots-drift-without-vision.md"
+  - "16 kalman filter geometry": "Robot_Alchemy/16-kalman-filter-geometry.md"
+  - "17 what deployment really means": "Robot_Alchemy/17-what-deployment-really-means.md"
+  - "18 why roomba knows where it is": "Robot_Alchemy/18-why-roomba-knows-where-it-is.md"
 
 theme:
   name: material

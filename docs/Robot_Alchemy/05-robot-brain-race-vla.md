@@ -1,5 +1,5 @@
 ---
-description: "2026 机器人大脑之战：Gemini Robotics 2、Figure Helix、Physical Intelligence π0 三条路线拆解，VLA 双系统架构、开源权重版图与数据瓶颈，全部信源标注，机器人炼金术前沿篇第 2 期"
+description: "2026 机器人大脑之战：Gemini Robotics 2、Figure Helix、Physical Intelligence π0 三条路线拆解，VLA 双系统架构、开源权重版图与数据瓶颈，全部信源标注"
 ---
 
 > 本文是「前沿与译文」系列第 2 篇（主线 F2）。写作日期 2026-10-26，数据均标注来源与可信度评级，时效性内容请以最新信息为准。前置阅读：[第 02 篇 人形机器人 2026 现状](02-humanoid-2026-state.md)。

@@ -7,8 +7,12 @@ v4（2026-11-16，GEO 强化第二轮）：
   - 新增 v4：
     1) 文章页 TechArticle 补 proficiencyLevel / wordCount / timeRequired / articleSection /
        teaches / mentions（自动从正文内链解析，形成站内知识图谱）
-    2) 栏目页注入 CollectionPage + ItemList（全站 15 篇清单，AI 引擎一次抓全目录）
+    2) 栏目页注入 CollectionPage + ItemList（全站文章清单，AI 引擎一次抓全目录）
     3) 构建后自动生成 llms.txt（站点级 AI 摘要，配 docs/robots.txt 明确允许 AI 爬虫）
+
+v4.1（2026-11-23）：摘要规范升级——description 与开头导读块只写本文相关内容，
+  去掉栏目期数 / 版本对比 / 交付目录 / 分镜 / 订阅更新频率等非本文信息；
+  CollectionPage 与 llms.txt 的篇数一律由扫描结果动态生成，不再写死。
 """
 import json
 import re
@@ -31,12 +35,16 @@ PUBLISH_DATES = {
     "13-contact-mechanics-friction-cone": "2026-11-16",
     "14-cost-of-reproducing-a-paper": "2026-11-16",
     "15-why-robots-drift-without-vision": "2026-11-16",
+    "16-kalman-filter-geometry": "2026-11-23",
+    "17-what-deployment-really-means": "2026-11-23",
+    "18-why-roomba-knows-where-it-is": "2026-11-23",
 }
 
 DEFAULT_KEYWORDS = (
     "机器人学,机器人炼金术,SE(3),运动学,动力学,RNEA,雅可比,逆运动学,"
     "正运动学,接触力学,摩擦锥,互补条件,LCP,状态估计,IMU漂移,论文复现,"
-    "人形机器人,具身智能,世界模型,VLA,sim2real,平衡控制"
+    "人形机器人,具身智能,世界模型,VLA,sim2real,平衡控制,"
+    "卡尔曼滤波,EKF,误差状态卡尔曼滤波,ESKF,因子图,滑窗优化,里程计,定位,部署判据,可靠性"
 )
 
 SECTION_NAME = "机器人炼金术"
@@ -61,6 +69,9 @@ ARTICLE_TITLES = {
     "13-contact-mechanics-friction-cone": "接触力学入门：摩擦锥、互补条件，以及腿式机器人为什么会抖",
     "14-cost-of-reproducing-a-paper": "复现一篇机器人论文，真实成本是多少",
     "15-why-robots-drift-without-vision": "机器人为什么闭着眼走两步就歪：从 IMU 漂移说起",
+    "16-kalman-filter-geometry": "卡尔曼滤波的几何解释：它不是公式，是高斯分布的搬运",
+    "17-what-deployment-really-means": "人形机器人「部署」到底看什么：从演示视频到工时账单",
+    "18-why-roomba-knows-where-it-is": "你家的扫地机器人，可能比人形机器人更懂「我在哪」",
 }
 
 LEVEL_MAP = {"入门": "Beginner", "进阶": "Intermediate", "硬核": "Expert"}

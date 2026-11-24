@@ -1,5 +1,5 @@
 ---
-description: "正运动学系统讲解：标准 DH 参数建模、齐次矩阵连乘的平移列陷阱、乘积指数 PoE 公式逐句实现，DH/DH矩阵/PoE 三种写法一致性验证到 1e-15，含工作空间分析、机械臂标定等真实场景与可运行 Python 代码，机器人炼金术理论篇第 3 期"
+description: "正运动学系统讲解：标准 DH 参数建模、齐次矩阵连乘的平移列陷阱、乘积指数 PoE 公式逐句实现，DH/DH矩阵/PoE 三种写法一致性验证到 1e-15，含工作空间分析、机械臂标定等真实场景与可运行 Python 代码"
 ---
 
 > 本文是「运动学」系列第 2 篇（主线 L2）。前置阅读：[第 01 篇 SE(3) 位姿表示](01-se3-pose-representation.md)、[第 04 篇 雅可比](04-jacobian-velocity-translator.md)。配套代码：[`code/fk_demo.py`](https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners/blob/main/code/fk_demo.py)，文中所有验证数字都可用脚本复现。

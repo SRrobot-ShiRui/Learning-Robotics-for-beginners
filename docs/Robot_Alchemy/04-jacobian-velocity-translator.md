@@ -1,5 +1,5 @@
 ---
-description: "雅可比矩阵系统讲解：关节速度到末端速度的翻译、几何雅可比逐句实现、奇异性与阻尼最小二乘，含工业机械臂/无人机/人形机器人真实场景与可运行 Python 代码，机器人炼金术理论篇第 2 期"
+description: "雅可比矩阵系统讲解：关节速度到末端速度的翻译、几何雅可比逐句实现、奇异性与阻尼最小二乘，含工业机械臂/无人机/人形机器人真实场景与可运行 Python 代码"
 ---
 
 > 本文是「运动学与雅可比」系列第 1 篇（主线 L2）。前置阅读：[第 01 篇 SE(3) 位姿表示](01-se3-pose-representation.md)。配套代码：[`code/jacobian_demo.py`](https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners/blob/main/code/jacobian_demo.py)，所有结论都可以用脚本复现，建议边读边跑。

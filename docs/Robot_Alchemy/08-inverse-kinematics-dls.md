@@ -1,5 +1,5 @@
 ---
-description: "逆运动学系统讲解：雅可比伪逆迭代法的牛顿法本质、逐句 Python 实现、不可达目标下伪逆发散与阻尼最小二乘 DLS 收敛对比（关节角漂移 616 rad vs 0.37 rad）、冗余臂零空间自运动，含工业机械臂/人形机器人真实场景，机器人炼金术理论篇第 4 期"
+description: "逆运动学系统讲解：雅可比伪逆迭代法的牛顿法本质、逐句 Python 实现、不可达目标下伪逆发散与阻尼最小二乘 DLS 收敛对比（关节角漂移 616 rad vs 0.37 rad）、冗余臂零空间自运动，含工业机械臂/人形机器人真实场景"
 ---
 
 > 本文是「运动学」系列第 3 篇（主线 L2）。前置阅读：[第 04 篇 雅可比](04-jacobian-velocity-translator.md)（本文的数学底座）、[第 07 篇 正运动学](07-forward-kinematics-dh-poe.md)。配套代码：[`code/ik_demo.py`](https://github.com/SRrobot-ShiRui/Learning-Robotics-for-beginners/blob/main/code/ik_demo.py)，所有验证数字可用脚本复现。
